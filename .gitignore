@@ -1,50 +1,53 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# Bot
+# Ignore Python build and cache files
 __pycache__/
+*.pyc
+
+# Environment variables and sensitive information
 .env
-.vscode
-*.log
+.env*.local
 api_keys.json
 
-# Delete
-old_message_recorder.py
+# Log files and data
+*.log
+conversations.csv
 
-# dependencies
-/node_modules
-/.pnp
+# VS Code configuration
+.vscode/
+
+# Temporary and experimental files
+0.py
+notes.md
+setup_port_forwarding.sh
+undo_port_forwarding.sh
+
+# Dependency directories and package manager files
+node_modules/
+.pnp/
 .pnp.js
 .yarn/install-state.gz
 
-# testing
-/coverage
+# Test coverage reports
+coverage/
 
-# next.js
-/.next/
-/out/
+# Next.js build output
+.next/
+out/
 
-# production
-/build
+# Production build output
+build/
 
-# misc
+# Miscellaneous system files
 .DS_Store
 *.pem
 
-# debug
+# Debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env
-.env*.local
+# Vercel deployment configuration
+.vercel/
 
-# vercel
-.vercel
-
-# typescript
+# TypeScript build files
 *.tsbuildinfo
 next-env.d.ts
-
-# Python trash
-*.pyc
