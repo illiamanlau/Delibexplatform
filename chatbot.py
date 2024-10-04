@@ -26,7 +26,7 @@ class ChatBot():
             await recorder.write_message(message, greeting)
 
         self.log(f'Sending message {message[:100]}')
-        response = api.send_message("chat1", self.description["name"], message)
+        response = api.send_message("test", self.description["name"], message)
         self.log(f"RESPONSE: {response}")
 
     async def update_messages(self, messages):
@@ -69,7 +69,7 @@ class LLMBot(ChatBot):
 
         # Build message recorder
         self.messages = conversation_manager.ChatHistoryInteractionManager(
-            self.description["name"], "chat1", self.logger)
+            self.description["name"], "test", self.logger)
 
         greeting = self.llm_client.complete_from_message("Hi!", self.system_prompt)
         self.log(f'Bot is connected and ready as {self.description["name"]}. "{greeting}"')

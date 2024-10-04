@@ -9,7 +9,7 @@ api_keys.json
 
 # Log files and data
 *.log
-conversations.csv
+*.csv
 
 # VS Code configuration
 .vscode/

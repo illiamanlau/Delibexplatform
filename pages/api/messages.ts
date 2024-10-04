@@ -1,6 +1,5 @@
-// pages/api/messages.ts
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Message } from '../../types';
+import { Message } from '../../lib/types';
 import fs from 'fs';
 import path from 'path';
 
@@ -13,24 +12,33 @@ function extractMentions(content: string): string {
   return mentions.join('');
 }
 
-// Function to append a message to the CSV file
+// Function to append a message to the room-specific CSV file
 function appendToCSV(message: Message) {
-  const csvLine = `${message.roomId},${message.name},${message.email},${message.content.replace(/,/g, ';')},${new Date(message.timestamp).toLocaleString('en-GB', { 
-    day: '2-digit', 
-    month: '2-digit', 
-    year: 'numeric', 
-    hour: '2-digit', 
-    minute: '2-digit', 
-    second: '2-digit', 
-    hour12: false 
-}).replace(',', '')},${extractMentions(message.content)}\n`;  const csvPath = path.join(process.cwd(), 'conversations.csv');
+  const csvLine = `${message.roomId},${message.name},${message.email},${message.content.replace(/,/g, ';')},${new Date(message.timestamp).toLocaleString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  }).replace(',', '')},${extractMentions(message.content)}\n`;
+
+  const conversationsDir = path.join(process.cwd(), 'conversations');
   
+  // Create the conversations directory if it doesn't exist
+  if (!fs.existsSync(conversationsDir)) {
+    fs.mkdirSync(conversationsDir, { recursive: true });
+  }
+
+  const csvPath = path.join(conversationsDir, `${message.roomId}.csv`);
+
   // If the file doesn't exist, create it with a header
   if (!fs.existsSync(csvPath)) {
     fs.writeFileSync(csvPath, 'roomId,name,email,content,timestamp,mentions\n');
   }
-  
-  // Append the new line to the CSV file
+
+  // Append the new line to the room-specific CSV file
   fs.appendFileSync(csvPath, csvLine);
 }
 
@@ -45,10 +53,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   } else if (req.method === 'POST') {
     const newMessage: Message = req.body;
     messages.push(newMessage);
-    
-    // Append the new message to the CSV file
+    // Append the new message to the room-specific CSV file
     appendToCSV(newMessage);
-    
     res.status(201).json(newMessage);
   } else {
     res.status(405).end();

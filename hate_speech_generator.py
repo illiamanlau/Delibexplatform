@@ -38,16 +38,15 @@ def process_parsed_args(args):
 process_parsed_args(get_parsed_args())
 
 # Infinite loop to select random attacks every 10 seconds
-i = 1
+i = 0
 while True:
     # Choose a random line and strip any extra whitespace
     message = random.choice(attacks).strip()
     
     # Output the random attack phrase
-    response = api.send_message("chat1", "HaterBot300" + str(i), message)
+    response = api.send_message("test", "HaterBot" + str(3001 + i%4), message)
     
     # Wait for 10 seconds before choosing again
     time.sleep(FREQ)
 
     i += 1
-    if i > 4: i = 1

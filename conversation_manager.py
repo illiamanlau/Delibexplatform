@@ -169,7 +169,7 @@ class ChatHistoryInteractionManager:
 
 # Example usage
 async def main():
-    chat = ChatHistoryInteractionManager("Alice", "chat1")
+    chat = ChatHistoryInteractionManager("Alice", "test")
     
     # Simulate receiving new messages
     await chat.update_messages(json.dumps([

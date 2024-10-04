@@ -5,9 +5,15 @@ import ChatRoom from '../components/ChatRoom';
 
 // Define chat room configurations
 const chatRooms = {
-  chat1: { title: "Chat Room 1", description: "Welcome to the first chat room!" },
-  chat2: { title: "Chat Room 2", description: "This is the second chat room." },
-  // Add more chat rooms as needed
+  test: { title: "Test Chatroom", description: "Welcome to the test chatroom!" },
+  groupA: { title: "Social media group 1", description: "Group A" },
+  groupB: { title: "Social media group 1", description: "Group B" },
+  groupC: { title: "Social media group 2", description: "Group C" },
+  groupD: { title: "Social media group 2", description: "Group D" },
+  groupE: { title: "Social media group 3", description: "Group E" },
+  groupF: { title: "Social media group 3", description: "Group F" },
+  groupG: { title: "Social media group 4", description: "Group G" },
+  groupH: { title: "Social media group 4", description: "Group H" },
 };
 
 export default function DynamicChatRoom() {

@@ -21,7 +21,7 @@ def send_message(room_id, name, content):
 
 # Example usage
 if __name__ == "__main__":
-    room_id = "chat1"  # Specify the room ID
+    room_id = "test"  # Specify the room ID
     bot_name = "PythonBot"
     bot_email = "pythonbot@example.com"  # Add an email for the bot
 

@@ -54,7 +54,7 @@ process_args(args)
 bots = [chatbot.LLMBot(description) for description in get_descriptions() if description["bot"]]
 
 async def run_bots_with_monitor():
-    monitor = MessageMonitor("http://localhost:3000/api/messages?roomId=chat1", bots)
+    monitor = MessageMonitor("http://localhost:3000/api/messages?roomId=test", bots)
     bot_tasks = [asyncio.create_task(bot.start_bot()) for bot in bots]
     monitor_task = asyncio.create_task(monitor.start_monitoring())
     

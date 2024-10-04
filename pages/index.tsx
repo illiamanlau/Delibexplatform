@@ -41,7 +41,7 @@ export default function Home() {
           type="text"
           value={chatRoom}
           onChange={(e) => setChatRoom(e.target.value)}
-          placeholder="Enter chat room (e.g., chat1)"
+          placeholder="Enter chat room (e.g., groupX)"
           className="w-full p-3 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <button type="submit" className="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition duration-300">
