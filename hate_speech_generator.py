@@ -4,9 +4,12 @@ import api
 import argparse
 
 # Read the file and store all lines in a list
+# Ignore empty lines and lines starting with '#'
 with open('hate_speech.txt', 'r') as file:
-    attacks = file.readlines()
-
+    attacks = list(filter(lambda phrase:
+                          phrase and not phrase.startswith('#'),
+                     map(lambda phrase:
+                         phrase.strip(), file.readlines())))
 
 FREQ = 10.0     # Frequency of hate texts
 
@@ -35,12 +38,16 @@ def process_parsed_args(args):
 process_parsed_args(get_parsed_args())
 
 # Infinite loop to select random attacks every 10 seconds
+i = 1
 while True:
     # Choose a random line and strip any extra whitespace
     message = random.choice(attacks).strip()
     
     # Output the random attack phrase
-    response = api.send_message("chat1", "HaterBot3000", message)
+    response = api.send_message("chat1", "HaterBot300" + str(i), message)
     
     # Wait for 10 seconds before choosing again
     time.sleep(FREQ)
+
+    i += 1
+    if i > 4: i = 1
