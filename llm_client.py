@@ -1,13 +1,12 @@
-from utils import *
+import utils
 
 import groq, openai
-import json
 
 def get_client(model):
     if "llama" in model:
-        return groq.Groq(api_key=get_api_key("groq"))
+        return groq.Groq(api_key=utils.get_api_key("groq"))
     else:
-        return openai.OpenAI(api_key=get_api_key("openai"))
+        return openai.OpenAI(api_key=utils.get_api_key("openai"))
 
 class LLMClient():
     def __init__(self, settings, logger = None):
@@ -22,6 +21,7 @@ class LLMClient():
 
     def get_response_from_completion(self, completion_settings):
         self.log(f'Completion settings {completion_settings}')
+        if utils.OFFLINE: return "Lorem ipsum"
         completion_response = self.client.chat.completions.create(**completion_settings)
         response = completion_response.choices[0].message.content.strip()
         if len(response) == 0:
@@ -43,7 +43,7 @@ class LLMClient():
         try:
             response_text = self.get_response_from_completion(completion_settings)
         except Exception as err:
-            print_json(completion_settings, True)
+            utils.print_json(completion_settings, True)
             self.logger.error(f"Unexpected {err=}, {type(err)=} when requesting LLM completion")
             return None
         self.log(f'Response starts with {response_text[:100]}')
