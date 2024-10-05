@@ -9,49 +9,63 @@ import utils
 def parse_args():
     parser = argparse.ArgumentParser(description='Speedup configuration')
     
+    # Adding mandatory experiment description argument
+    parser.add_argument(
+        'experiment_description',
+        type=str,
+        help='Experiment description folder (format: experiment-description/experiment_name.json)'
+    )
+    
     # Adding optional speedup argument
-    parser.add_argument('--speedup', nargs='?', const=10.0, type=float, 
-                        help='Set speed up factor (default: 10.0)')
+    parser.add_argument(
+        '--speedup', 
+        nargs='?', 
+        const=10.0, 
+        type=float,
+        help='Set speed up factor (default: 10.0)'
+    )
     
     # Add optional --start flag (no extra param, just a flag)
     parser.add_argument(
-        '--start', 
-        action='store_true',  # If --start is present, this will be True
+        '--start',
+        action='store_true',
         help='Bots will start participating right away with a default message'
     )
-
+    
     # Parsing arguments
     args = parser.parse_args()
+    
+    # Validate experiment description format
+    # if not os.path.isdir(args.experiment_description):
+    #    parser.error("The experiment description must be in the format 'experiment-description/something'")
     
     return args
 
 def process_args(args):
     if args.start:
         chatbot.SEND_INITIAL_MESSAGE = True
-
+    
     # Set SPEED_UP_FACTOR from utils
     if args.speedup is not None:
         utils.SPEED_UP_FACTOR = args.speedup
         print(f"Speed up factor set to: {utils.SPEED_UP_FACTOR}")
     else:
         print(f"Speed up factor remains unchanged at: {utils.SPEED_UP_FACTOR}")
+    
+    print(f"Experiment description: {args.experiment_description}")
 
 def build_system_prompt(general_system_prompt, bot_system_prompt):
     return '\n'.join(general_system_prompt + [''] + bot_system_prompt)
 
-def get_descriptions():
-    with open('descriptions.json', 'r') as file:
-        data = json.load(file)
-    for bot in data["bots"]:
-        if "system_prompt" in bot:
-            bot["system_prompt"] = build_system_prompt(data["general_system_prompt"], bot["system_prompt"])
-    utils.print_json(data["bots"])
-    return data["bots"]
-
+# Parse and process args
 args = parse_args()
 process_args(args)
 
-bots = [chatbot.LLMBot(description) for description in get_descriptions() if description["bot"]]
+# Read experiment description
+with open(args.experiment_description, 'r') as file:
+    bot_data = json.load(file)
+
+bots = list(map(chatbot.LLMBot, filter(lambda bot: bot["enable"], bot_data)))
 
 async def run_bots_with_monitor():
     monitor = MessageMonitor("http://localhost:3000/api/messages?roomId=test", bots)

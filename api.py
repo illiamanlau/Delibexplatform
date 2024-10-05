@@ -8,14 +8,8 @@ def get_messages(room_id):
     response = requests.get(f"{BASE_API_URL}?roomId={room_id}")
     return response.json()
 
-def send_message(room_id, name, content):
-    message = {
-        "roomId": room_id,
-        "name": name,
-        "email": name + '@bot.bot',
-        "content": content,
-        "timestamp": datetime.now(timezone.utc).isoformat()
-    }
+def send_message(message):
+    message["timestamp"] = datetime.now(timezone.utc).isoformat()
     response = requests.post(BASE_API_URL, json=message)
     return response.json()
 
@@ -32,7 +26,12 @@ if __name__ == "__main__":
         print(f"{msg['name']}: {msg['content']}")
 
     # Send a new message
-    new_message = send_message(room_id, bot_name, bot_email, "Hello from Python!")
+    new_message = send_message({
+        "roomId": room_id,
+        "name": bot_name,
+        "email": bot_email,
+        "content": "Hello from Python!",
+    })
     print(f"Sent message: {new_message}")
 
     # Get updated messages

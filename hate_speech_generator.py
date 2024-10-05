@@ -41,10 +41,16 @@ process_parsed_args(get_parsed_args())
 i = 0
 while True:
     # Choose a random line and strip any extra whitespace
-    message = random.choice(attacks).strip()
+    content = random.choice(attacks).strip()
     
     # Output the random attack phrase
-    response = api.send_message("test", "HaterBot" + str(3001 + i%4), message)
+    name = "HaterBot" + str(3001 + i%4)
+    response = api.send_message({
+        "roomId": "test",
+        "name": name,
+        "email":  name + '@bot.bot',
+        "content": content,
+    })
     
     # Wait for 10 seconds before choosing again
     time.sleep(FREQ)
