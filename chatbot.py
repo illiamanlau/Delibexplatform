@@ -62,34 +62,6 @@ class ChatBot():
         except Exception as err:
             self.logger.error(f"Unexpected {err=}, {type(err)=} for on_message")
 
-def join_paragraphs(*paragraphs):
-    return '\n\n'.join(*paragraphs)
-
-def read_file_text(filepath):
-    with open(filepath, 'r') as file:
-        return file.read()
-
-def generate_elaborated_prompt(description_path, llm_client):
-    # Read behavior prompt
-    behavior_prompt_text = read_file_text(description_path + '/behavior-prompt.txt')
-
-    # Read elaborated prompt
-    elaborated_prompt_text = read_file_text(description_path + '/elaborated-prompt.txt')
-
-    # Get self-reflected response
-    self_reflection_response = llm_client.complete_from_message(elaborated_prompt_text)
-
-    # Complete the elaborated prompt
-    elaborated_prompt_completion_text = read_file_text(description_path + '/elaborated-prompt-completion.txt')
-
-    # Merge all paragraphs
-    return join_paragraphs(
-        behavior_prompt_text,
-        elaborated_prompt_text,
-        self_reflection_response,
-        elaborated_prompt_completion_text,
-    )
-
 class LLMBot(ChatBot):
     def __init__(self, description):
         super().__init__(description)
@@ -98,12 +70,12 @@ class LLMBot(ChatBot):
         self.typing_lock = asyncio.Lock()
 
         if description["role"] == "simple":
-            self.system_prompt = join_paragraphs(map(read_file_text, [
+            self.system_prompt = utils.join_paragraphs(map(utils.read_file_text, [
                 description["path"] + '/behavior-prompt.txt',
                 description["path"] + '/simple-prompt.txt'
             ]))
         else:
-            self.system_prompt = generate_elaborated_prompt(description["path"], self.llm_client)
+            self.system_prompt = self.generate_elaborated_prompt(description["path"])
             self.log(f'Elaborated system prompt:\n {self.system_prompt}')
 
     async def on_ready(self):
@@ -119,5 +91,26 @@ class LLMBot(ChatBot):
         if SEND_INITIAL_MESSAGE:
             await self.send_message("hello everyone!", recorder=self.messages, greeting=True)
 
+    def generate_elaborated_prompt(self, description_path):
+        # Read behavior prompt
+        behavior_prompt_text = utils.read_file_text(description_path + '/behavior-prompt.txt')
 
+        # Read elaborated prompt
+        elaborated_prompt_text = utils.read_file_text(description_path + '/elaborated-prompt.txt')
+
+        # Get self-reflected response
+        self_reflection_response = self.llm_client.complete_from_message(elaborated_prompt_text)
+        if self_reflection_response is None:
+            self.logger.error(f"self_reflection_response not set")
+
+        # Complete the elaborated prompt
+        elaborated_prompt_completion_text = utils.read_file_text(description_path + '/elaborated-prompt-completion.txt')
+
+        # Merge all paragraphs
+        return utils.join_paragraphs(
+            behavior_prompt_text,
+            elaborated_prompt_text,
+            self_reflection_response,
+            elaborated_prompt_completion_text,
+        )
 

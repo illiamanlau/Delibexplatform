@@ -23,6 +23,13 @@ def clean_text_start(message: str) -> str:
 
     return clean_text
 
+def join_paragraphs(*paragraphs):
+    return '\n\n'.join(paragraphs)
+
+def read_file_text(filepath):
+    with open(filepath, 'r') as file:
+        return file.read()
+
 def get_api_key(name):
     with open('api_keys.json', 'r') as file:
         return json.load(file)[name]
