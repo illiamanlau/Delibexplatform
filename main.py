@@ -25,6 +25,13 @@ def parse_args():
         help='Set speed up factor (default: 10.0)'
     )
     
+    # Add optional --offline flag (no extra param, just a flag)
+    parser.add_argument(
+        '--offline',
+        action='store_true',
+        help='Bots will not interact with the LLM, they will just output some default text'
+    )
+
     # Add optional --start flag (no extra param, just a flag)
     parser.add_argument(
         '--start',
@@ -51,7 +58,12 @@ def process_args(args):
         print(f"Speed up factor set to: {utils.SPEED_UP_FACTOR}")
     else:
         print(f"Speed up factor remains unchanged at: {utils.SPEED_UP_FACTOR}")
-    
+
+    # Set OFFLINE from utils
+    if args.offline is not None:
+        utils.OFFLINE = args.offline
+        print(f"Offline flag set to: {utils.OFFLINE}")
+
     print(f"Experiment description: {args.experiment_description}")
 
 def build_system_prompt(general_system_prompt, bot_system_prompt):

@@ -62,24 +62,49 @@ class ChatBot():
         except Exception as err:
             self.logger.error(f"Unexpected {err=}, {type(err)=} for on_message")
 
-def concatenate_files_with_text(file1_path, file2_path):
-    with open(file1_path, 'r') as file1:
-        content1 = file1.read()
-    with open(file2_path, 'r') as file2:
-        content2 = file2.read()
-    return f"{content1}\n\n{content2}"
+def join_paragraphs(*paragraphs):
+    return '\n\n'.join(*paragraphs)
+
+def read_file_text(filepath):
+    with open(filepath, 'r') as file:
+        return file.read()
+
+def generate_elaborated_prompt(description_path, llm_client):
+    # Read behavior prompt
+    behavior_prompt_text = read_file_text(description_path + '/behavior-prompt.txt')
+
+    # Read elaborated prompt
+    elaborated_prompt_text = read_file_text(description_path + '/elaborated-prompt.txt')
+
+    # Get self-reflected response
+    self_reflection_response = llm_client.complete_from_message(elaborated_prompt_text)
+
+    # Complete the elaborated prompt
+    elaborated_prompt_completion_text = read_file_text(description_path + '/elaborated-prompt-completion.txt')
+
+    # Merge all paragraphs
+    return join_paragraphs(
+        behavior_prompt_text,
+        elaborated_prompt_text,
+        self_reflection_response,
+        elaborated_prompt_completion_text,
+    )
 
 class LLMBot(ChatBot):
     def __init__(self, description):
         super().__init__(description)
-        if description["role"] == "simple":
-            self.system_prompt = concatenate_files_with_text(
-                description["path"] + '/behavior-prompt.txt',
-                description["path"] + '/simple-prompt.txt')
-        else:
-            raise Exception("Only accepting simple prompts")
+
         self.llm_client = llm_client.LLMClient({"model" : "llama3-8b-8192"}, self.logger)
         self.typing_lock = asyncio.Lock()
+
+        if description["role"] == "simple":
+            self.system_prompt = join_paragraphs(map(read_file_text, [
+                description["path"] + '/behavior-prompt.txt',
+                description["path"] + '/simple-prompt.txt'
+            ]))
+        else:
+            self.system_prompt = generate_elaborated_prompt(description["path"], self.llm_client)
+            self.log(f'Elaborated system prompt:\n {self.system_prompt}')
 
     async def on_ready(self):
         self.log("on_ready")

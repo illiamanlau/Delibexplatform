@@ -1,0 +1,50 @@
+[
+    {
+        "path" : "bot-descriptions/AntiHaterBot",
+        "display-name": "AntiHaterBot Simple Test",
+        "email" : "antihaterbot_test@bot.bot",
+        "chatroom" : "test",
+        "role" : "simple",
+        "enable" : false
+    },
+    {
+        "path" : "bot-descriptions/AntiHaterBot",
+        "display-name": "AntiHaterBot Elaborated Test",
+        "email" : "antihaterbot_test@bot.bot",
+        "chatroom" : "test",
+        "role" : "elaborated",
+        "enable" : true
+    },
+    {
+        "path" : "bot-descriptions/AntiHaterBot",
+        "display-name": "AntiHaterBot E",
+        "email" : "antihaterbot_e@bot.bot",
+        "chatroom" : "chatE",
+        "role" : "simple",
+        "enable" : false
+    },
+    {
+        "path" : "bot-descriptions/AntiHaterBot",
+        "display-name": "AntiHaterBot F",
+        "email" : "antihaterbot_f@bot.bot",
+        "chatroom" : "chatF",
+        "role" : "simple",
+        "enable" : false
+    },
+    {
+        "path" : "bot-descriptions/AntiHaterBot",
+        "display-name": "AntiHaterBot G",
+        "email" : "antihaterbot_g@bot.bot",
+        "chatroom" : "chatG",
+        "role" : "elaborated",
+        "enable" : false
+    },
+    {
+        "path" : "bot-descriptions/AntiHaterBot",
+        "display-name": "AntiHaterBot H",
+        "email" : "antihaterbot_h@bot.bot",
+        "chatroom" : "chatH",
+        "role" : "elaborated",
+        "enable" : false
+    }
+]
