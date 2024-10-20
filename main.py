@@ -6,6 +6,9 @@ import chatbot
 from message_monitor import MessageMonitor  # Import the new MessageMonitor class
 import utils
 
+def get_experiment_description_file(experiment_name):
+    return f"assets/experiment-description/{experiment_name}.json"
+
 def parse_args():
     parser = argparse.ArgumentParser(description='Speedup configuration')
     
@@ -13,7 +16,7 @@ def parse_args():
     parser.add_argument(
         'experiment_description',
         type=str,
-        help='Experiment description folder (format: experiment-description/experiment_name.json)'
+        help='EXPERIMENT_NAME (as described in assets/experiment-descriptions/EXPERIMENT_NAME.json)'
     )
     
     # Adding optional speedup argument
@@ -42,10 +45,6 @@ def parse_args():
     # Parsing arguments
     args = parser.parse_args()
     
-    # Validate experiment description format
-    # if not os.path.isdir(args.experiment_description):
-    #    parser.error("The experiment description must be in the format 'experiment-description/something'")
-    
     return args
 
 def process_args(args):
@@ -64,7 +63,7 @@ def process_args(args):
         utils.OFFLINE = args.offline
         print(f"Offline flag set to: {utils.OFFLINE}")
 
-    print(f"Experiment description: {args.experiment_description}")
+    print(f"Experiment description: {get_experiment_description_file(args.experiment_description)}")
 
 def build_system_prompt(general_system_prompt, bot_system_prompt):
     return '\n'.join(general_system_prompt + [''] + bot_system_prompt)
@@ -74,7 +73,7 @@ args = parse_args()
 process_args(args)
 
 # Read experiment description
-with open(args.experiment_description, 'r') as file:
+with open(get_experiment_description_file(args.experiment_description), 'r') as file:
     bot_data = json.load(file)
 
 bots = list(map(chatbot.LLMBot, filter(lambda bot: bot["enable"], bot_data)))

@@ -1,6 +1,6 @@
 [
     {
-        "path" : "bot-descriptions/AntiHaterBot",
+        "bot-description" : "AntiHaterBot",
         "display-name": "AntiHaterBot Simple Test",
         "email" : "antihaterbot_test@bot.bot",
         "chatroom" : "test",
@@ -8,7 +8,7 @@
         "enable" : false
     },
     {
-        "path" : "bot-descriptions/AntiHaterBot",
+        "bot-description" : "AntiHaterBot",
         "display-name": "AntiHaterBot Elaborated Test",
         "email" : "antihaterbot_test@bot.bot",
         "chatroom" : "test",
@@ -16,34 +16,34 @@
         "enable" : true
     },
     {
-        "path" : "bot-descriptions/AntiHaterBot",
-        "display-name": "AntiHaterBot E",
+        "bot-description" : "AntiHaterBot",
+        "display-name": "Victor Martin",
         "email" : "antihaterbot_e@bot.bot",
-        "chatroom" : "chatE",
+        "chatroom" : "room3A",
         "role" : "simple",
         "enable" : false
     },
     {
-        "path" : "bot-descriptions/AntiHaterBot",
-        "display-name": "AntiHaterBot F",
+        "bot-description" : "AntiHaterBot",
+        "display-name": "Victor Martin",
         "email" : "antihaterbot_f@bot.bot",
-        "chatroom" : "chatF",
+        "chatroom" : "room3B",
         "role" : "simple",
         "enable" : false
     },
     {
-        "path" : "bot-descriptions/AntiHaterBot",
-        "display-name": "AntiHaterBot G",
+        "bot-description" : "AntiHaterBot",
+        "display-name": "Victor Martin",
         "email" : "antihaterbot_g@bot.bot",
-        "chatroom" : "chatG",
+        "chatroom" : "room4A",
         "role" : "elaborated",
         "enable" : false
     },
     {
-        "path" : "bot-descriptions/AntiHaterBot",
-        "display-name": "AntiHaterBot H",
+        "bot-description" : "AntiHaterBot",
+        "display-name": "Victor Martin",
         "email" : "antihaterbot_h@bot.bot",
-        "chatroom" : "chatH",
+        "chatroom" : "room4B",
         "role" : "elaborated",
         "enable" : false
     }

@@ -5,7 +5,7 @@ import argparse
 
 # Read the file and store all lines in a list
 # Ignore empty lines and lines starting with '#'
-with open('hate_speech.txt', 'r') as file:
+with open('assets/hate_speech.txt', 'r') as file:
     attacks = list(filter(lambda phrase:
                           phrase and not phrase.startswith('#'),
                      map(lambda phrase:

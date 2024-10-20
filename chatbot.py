@@ -66,6 +66,7 @@ class LLMBot(ChatBot):
     def __init__(self, description):
         super().__init__(description)
 
+        description["path"] = "assets/bot-descriptions/" + description["bot-description"]
         self.llm_client = llm_client.LLMClient({"model" : "llama3-8b-8192"}, self.logger)
         self.typing_lock = asyncio.Lock()
 
