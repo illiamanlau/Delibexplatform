@@ -1,14 +1,53 @@
 import React, { useState } from 'react';
 
+// Define the CSS styles for the buttons directly in the component file
+const styles = {
+  runButton: {
+    backgroundColor: 'green',
+    color: 'white',
+    padding: '10px 20px',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    marginRight: '10px', // Add extra separation between buttons
+    // Add a hover effect for better user experience
+    ':hover': {
+      backgroundColor: 'darkgreen',
+    },
+  },
+  stopButton: {
+    backgroundColor: 'red',
+    color: 'white',
+    padding: '10px 20px',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    // Add a hover effect for better user experience
+    ':hover': {
+      backgroundColor: 'darkred',
+    },
+  },
+  disabledInput: {
+    backgroundColor: '#e0e0e0', // Gray background for disabled input
+  },
+};
+
+// HaterbotTab component for managing the Haterbot settings and execution
 const HaterbotTab: React.FC = () => {
+  // State to store the output of the script
   const [output, setOutput] = useState('');
+  
+  // State to store the flags for the Haterbot script
   const [haterbotFlags, setHaterbotFlags] = useState({
     freq: false,
-    freqValue: 30.0,
+    freqValue: 10.0,
     names: false,
     namesValue: 4,
   });
 
+  // Function to handle the script execution
   const handleScriptExecution = async (action: 'start' | 'stop') => {
     const flags = [
       haterbotFlags.freq && `--freq ${haterbotFlags.freqValue}`,
@@ -47,15 +86,16 @@ const HaterbotTab: React.FC = () => {
             onChange={(e) => setHaterbotFlags({ ...haterbotFlags, freq: e.target.checked })}
             className="mr-2"
           />
-          <span className="font-semibold">Send a hate message every</span>
+          <span className="font-semibold">Send a hate message every </span>
           <input
             type="number"
             value={haterbotFlags.freqValue}
             onChange={(e) => setHaterbotFlags({ ...haterbotFlags, freqValue: parseFloat(e.target.value) })}
             className="border p-1 ml-2 rounded w-20"
             disabled={!haterbotFlags.freq}
+            style={!haterbotFlags.freq ? styles.disabledInput : {}}
           />
-          <span className="font-semibold ml-2">seconds</span>
+          <span className="font-semibold ml-2"> seconds</span>
         </label>
       </div>
       <div className="mb-4">
@@ -66,27 +106,28 @@ const HaterbotTab: React.FC = () => {
             onChange={(e) => setHaterbotFlags({ ...haterbotFlags, names: e.target.checked })}
             className="mr-2"
           />
-          <span className="font-semibold">Use</span>
+          <span className="font-semibold">Use </span>
           <input
             type="number"
             value={haterbotFlags.namesValue}
             onChange={(e) => setHaterbotFlags({ ...haterbotFlags, namesValue: parseInt(e.target.value) })}
             className="border p-1 ml-2 rounded w-20"
             disabled={!haterbotFlags.names}
+            style={!haterbotFlags.names ? styles.disabledInput : {}}
           />
-          <span className="font-semibold ml-2">different names</span>
+          <span className="font-semibold ml-2"> different names</span>
         </label>
       </div>
       <div className="flex space-x-2 mb-4 p-4 border rounded bg-gray-100">
         <button
           onClick={() => handleScriptExecution('start')}
-          className="p-2 bg-green-500 text-white rounded"
+          style={styles.runButton}
         >
-          Play
+          Run
         </button>
         <button
           onClick={() => handleScriptExecution('stop')}
-          className="p-2 bg-red-500 text-white rounded"
+          style={styles.stopButton}
         >
           Stop
         </button>

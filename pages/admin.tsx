@@ -4,13 +4,20 @@ import LLMBotTab from './LLMBotTab';
 import HaterbotTab from './HaterbotTab';
 import FileExplorerTab from './FileExplorerTab';
 
+// AdminPage component for managing the admin panel and authentication
 const AdminPage: React.FC = () => {
+  // State to store the password input
   const [password, setPassword] = useState('');
+  
+  // State to track authentication status
   const [authenticated, setAuthenticated] = useState(false);
+  
+  // State to track the active tab
   const [activeTab, setActiveTab] = useState('LLM bot');
 
   const router = useRouter();
 
+  // Function to handle login form submission
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === 'your_secure_password') {
