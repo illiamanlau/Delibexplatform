@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTabState } from '../context/TabStateContext';
 
 // Define the CSS styles for the buttons directly in the component file
 const styles = {
@@ -36,16 +37,20 @@ const styles = {
 
 // HaterbotTab component for managing the Haterbot settings and execution
 const HaterbotTab: React.FC = () => {
-  // State to store the output of the script
-  const [output, setOutput] = useState('');
-  
-  // State to store the flags for the Haterbot script
-  const [haterbotFlags, setHaterbotFlags] = useState({
+  const { state, setState } = useTabState();
+  const [haterbotFlags, setHaterbotFlags] = useState(state.haterbotFlags || {
     freq: false,
     freqValue: 10.0,
     names: false,
     namesValue: 4,
   });
+
+  useEffect(() => {
+    setState((prevState) => ({ ...prevState, haterbotFlags }));
+  }, [haterbotFlags, setState]);
+
+  // State to store the output of the script
+  const [output, setOutput] = useState('');
 
   // Function to handle the script execution
   const handleScriptExecution = async (action: 'start' | 'stop') => {

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import LLMBotTab from './LLMBotTab';
 import HaterbotTab from './HaterbotTab';
 import FileExplorerTab from './FileExplorerTab';
+import { useTabState } from '../context/TabStateContext';
 
 // AdminPage component for managing the admin panel and authentication
 const AdminPage: React.FC = () => {
@@ -15,6 +16,7 @@ const AdminPage: React.FC = () => {
   // State to track the active tab
   const [activeTab, setActiveTab] = useState('LLM bot');
 
+  const { state, setState } = useTabState();
   const router = useRouter();
 
   // Function to handle login form submission
@@ -26,6 +28,10 @@ const AdminPage: React.FC = () => {
       alert('Incorrect password');
     }
   };
+
+  useEffect(() => {
+    setState((prevState) => ({ ...prevState, activeTab }));
+  }, [activeTab, setState]);
 
   if (!authenticated) {
     return (

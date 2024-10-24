@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTabState } from '../context/TabStateContext';
 
 // Define the CSS styles for the buttons directly in the component file
 const styles = {
@@ -36,17 +37,21 @@ const styles = {
 
 // LLMBotTab component for managing the LLM bot settings and execution
 const LLMBotTab: React.FC = () => {
-  // State to store the output of the script
-  const [output, setOutput] = useState('');
-  
-  // State to store the flags for the LLM bot script
-  const [llmFlags, setLlmFlags] = useState({
+  const { state, setState } = useTabState();
+  const [llmFlags, setLlmFlags] = useState(state.llmFlags || {
     experimentName: 'verenetti',
     start: false,
     offline: false,
     speedup: false,
     speedupValue: 10,
   });
+
+  useEffect(() => {
+    setState((prevState) => ({ ...prevState, llmFlags }));
+  }, [llmFlags, setState]);
+
+  // State to store the output of the script
+  const [output, setOutput] = useState('');
 
   // Function to handle the script execution
   const handleScriptExecution = async (action: 'start' | 'stop') => {
