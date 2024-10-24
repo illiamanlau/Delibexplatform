@@ -1,0 +1,18 @@
+.file-explorer-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.text-edit-box {
+    flex: 1;
+    width: 100%;
+    resize: none;
+    margin-bottom: 10px;
+}
+
+.save-button {
+    align-self: flex-end;
+}

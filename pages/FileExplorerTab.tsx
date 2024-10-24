@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Folder, File, ChevronRight, ChevronDown, Plus, Trash, Edit2, Copy, FileText } from 'lucide-react';
+import { TextareaAutosize, Button } from '@material-ui/core';
 
 interface FileNode {
   id: string;
@@ -366,27 +367,23 @@ const FileExplorer = () => {
       
       {editingFile && (
         <div className="flex-1 flex flex-col p-4">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg font-semibold">{editingFile.path}</h2>
-            <button
-              onClick={handleSaveFile}
-              className={`px-4 py-2 rounded ${
-                unsavedChanges 
-                  ? 'bg-blue-500 text-white hover:bg-blue-600' 
-                  : 'bg-gray-200 text-gray-500'
-              }`}
-            >
-              Save
-            </button>
-          </div>
-          <textarea
+          <TextareaAutosize
             className="flex-1 p-4 border rounded font-mono"
             value={editingFile.content}
             onChange={(e) => {
               setEditingFile({ ...editingFile, content: e.target.value });
               setUnsavedChanges(true);
             }}
+            style={{ resize: 'both' }}
           />
+          <Button
+            variant="contained"
+            color="primary"
+            className="self-end mt-2"
+            onClick={handleSaveFile}
+          >
+            Save
+          </Button>
         </div>
       )}
     </div>
