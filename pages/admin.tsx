@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import LLMBotTab from './LLMBotTab';
 import HaterbotTab from './HaterbotTab';
 import FileExplorerTab from './FileExplorerTab';
+import DocumentationTab from './DocumentationTab';
 import { useTabState } from '../context/TabStateContext';
 
 // AdminPage component for managing the admin panel and authentication
@@ -80,11 +81,18 @@ const AdminPage: React.FC = () => {
         >
           File Explorer
         </button>
+        <button
+          onClick={() => setActiveTab('Documentation')}
+          className={`p-2 rounded ${activeTab === 'Documentation' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+        >
+          Documentation
+        </button>
       </div>
       <div className="tab-content">
         {activeTab === 'LLM bot' && <LLMBotTab />}
         {activeTab === 'Haterbot' && <HaterbotTab />}
         {activeTab === 'File Explorer' && <FileExplorerTab />}
+        {activeTab === 'Documentation' && <DocumentationTab />}
       </div>
     </div>
   );
