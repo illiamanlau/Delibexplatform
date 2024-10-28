@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useRouter } from 'next/router';
 import LLMBotTab from './LLMBotTab';
 import HaterbotTab from './HaterbotTab';
@@ -7,25 +8,29 @@ import { useTabState } from '../context/TabStateContext';
 
 // AdminPage component for managing the admin panel and authentication
 const AdminPage: React.FC = () => {
-  // State to store the password input
-  const [password, setPassword] = useState('');
-  
-  // State to track authentication status
+  // State to track authentication status and store the password input
+  const router = useRouter();
   const [authenticated, setAuthenticated] = useState(false);
-  
+  const [inputPassword, setInputPassword] = useState('');
+
   // State to track the active tab
   const [activeTab, setActiveTab] = useState('LLM bot');
 
   const { state, setState } = useTabState();
-  const router = useRouter();
 
   // Function to handle login form submission
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === 'your_secure_password') {
-      setAuthenticated(true);
-    } else {
-      alert('Incorrect password');
+    try {
+      const response = await axios.post('/api/login', { password: inputPassword });
+      if (response.data.authenticated) {
+        setAuthenticated(true);
+      } else {
+        alert('Incorrect password');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      alert('An error occurred during login');
     }
   };
 
@@ -40,8 +45,8 @@ const AdminPage: React.FC = () => {
         <form onSubmit={handleLogin} className="space-y-4">
           <input
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={inputPassword}
+            onChange={(e) => setInputPassword(e.target.value)}
             placeholder="Enter password"
             className="w-full p-2 border rounded"
           />

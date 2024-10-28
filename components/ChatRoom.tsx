@@ -1,6 +1,6 @@
 // components/ChatRoom.tsx
 import React, { useState, useEffect, useRef } from 'react';
-import { Message, ChatRoomProps } from '../types';
+import { Message, ChatRoomProps } from '../lib/types';
 
 const stringToColor = (str: string) => {
   let hash = 0;
