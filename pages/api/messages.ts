@@ -42,6 +42,19 @@ function appendToCSV(message: Message) {
   fs.appendFileSync(csvPath, csvLine);
 }
 
+// Function to delete all messages
+function deleteAllMessages() {
+  messages = [];
+  const conversationsDir = path.join(process.cwd(), 'conversations');
+
+  // Delete all files in the conversations directory
+  if (fs.existsSync(conversationsDir)) {
+    fs.readdirSync(conversationsDir).forEach(file => {
+      fs.unlinkSync(path.join(conversationsDir, file));
+    });
+  }
+}
+
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
     const { roomId } = req.query;
@@ -56,6 +69,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     // Append the new message to the room-specific CSV file
     appendToCSV(newMessage);
     res.status(201).json(newMessage);
+  } else if (req.method === 'DELETE') {
+    deleteAllMessages();
+    res.status(200).json({ message: 'All messages have been deleted.' });
   } else {
     res.status(405).end();
   }

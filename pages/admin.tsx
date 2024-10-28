@@ -5,6 +5,7 @@ import LLMBotTab from './LLMBotTab';
 import HaterbotTab from './HaterbotTab';
 import FileExplorerTab from './FileExplorerTab';
 import DocumentationTab from './DocumentationTab';
+import MessagesTab from './MessagesTab'; // Import the new MessagesTab component
 import { useTabState } from '../context/TabStateContext';
 
 // AdminPage component for managing the admin panel and authentication
@@ -87,12 +88,19 @@ const AdminPage: React.FC = () => {
         >
           Documentation
         </button>
+        <button
+          onClick={() => setActiveTab('Messages')}
+          className={`p-2 rounded ${activeTab === 'Messages' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+        >
+          Messages
+        </button>
       </div>
       <div className="tab-content">
         {activeTab === 'LLM bot' && <LLMBotTab />}
         {activeTab === 'Haterbot' && <HaterbotTab />}
         {activeTab === 'File Explorer' && <FileExplorerTab />}
         {activeTab === 'Documentation' && <DocumentationTab />}
+        {activeTab === 'Messages' && <MessagesTab />} {/* Use the MessagesTab component */}
       </div>
     </div>
   );
