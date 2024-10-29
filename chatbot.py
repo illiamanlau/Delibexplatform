@@ -2,6 +2,8 @@ import llm_client
 import conversation_manager
 import api
 import utils
+import os
+from datetime import datetime
 
 import asyncio
 import time
@@ -75,9 +77,24 @@ class LLMBot(ChatBot):
                 description["path"] + '/behavior-prompt.txt',
                 description["path"] + '/simple-prompt.txt'
             ]))
+            output_dir = "output/simple_prompts"
         else:
             self.system_prompt = self.generate_elaborated_prompt(description["path"])
             self.log(f'Elaborated system prompt:\n {self.system_prompt}')
+            output_dir = "output/elaborated_prompts"
+
+        # Ensure the output directory exists
+        os.makedirs(output_dir, exist_ok=True)
+
+        # Generate the timestamp string
+        timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+
+        # Construct the full file path
+        file_path = os.path.join(output_dir, f"{timestamp}.txt")
+
+        # Write the system prompt to the file
+        with open(file_path, 'w') as file:
+            file.write(self.system_prompt)
 
     async def on_ready(self):
         self.log("on_ready")

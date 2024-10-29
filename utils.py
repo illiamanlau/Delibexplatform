@@ -63,7 +63,7 @@ def get_logger(name):
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
 
-    file_handler = logging.FileHandler(f'logs/{name}.log')
+    file_handler = logging.FileHandler(f'output/logs/{name}.log')
     file_handler.setLevel(logging.INFO)
 
     # Create formatters and add them to handlers

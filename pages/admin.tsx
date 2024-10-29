@@ -5,7 +5,8 @@ import LLMBotTab from './LLMBotTab';
 import HaterbotTab from './HaterbotTab';
 import FileExplorerTab from './FileExplorerTab';
 import DocumentationTab from './DocumentationTab';
-import MessagesTab from './MessagesTab'; // Import the new MessagesTab component
+import MessagesTab from './MessagesTab';
+import ReadOnlyFileExplorer from '../components/ReadOnlyFileExplorer'; // Import the ReadOnlyFileExplorer component
 import { useTabState } from '../context/TabStateContext';
 
 // AdminPage component for managing the admin panel and authentication
@@ -68,7 +69,7 @@ const AdminPage: React.FC = () => {
           onClick={() => setActiveTab('LLM bot')}
           className={`p-2 rounded ${activeTab === 'LLM bot' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
         >
-          LLM bot
+          LLM Bot
         </button>
         <button
           onClick={() => setActiveTab('Haterbot')}
@@ -94,13 +95,20 @@ const AdminPage: React.FC = () => {
         >
           Messages
         </button>
+        <button
+          onClick={() => setActiveTab('Output Explorer')}
+          className={`p-2 rounded ${activeTab === 'Output Explorer' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+        >
+          Output Explorer
+        </button>
       </div>
       <div className="tab-content">
         {activeTab === 'LLM bot' && <LLMBotTab />}
         {activeTab === 'Haterbot' && <HaterbotTab />}
         {activeTab === 'File Explorer' && <FileExplorerTab />}
         {activeTab === 'Documentation' && <DocumentationTab />}
-        {activeTab === 'Messages' && <MessagesTab />} {/* Use the MessagesTab component */}
+        {activeTab === 'Messages' && <MessagesTab />}
+        {activeTab === 'Output Explorer' && <ReadOnlyFileExplorer />} {/* Ensure the correct folder path */}
       </div>
     </div>
   );

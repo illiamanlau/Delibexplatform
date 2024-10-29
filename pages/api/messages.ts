@@ -24,7 +24,7 @@ function appendToCSV(message: Message) {
     hour12: false
   }).replace(',', '')},${extractMentions(message.content)}\n`;
 
-  const conversationsDir = path.join(process.cwd(), 'conversations');
+  const conversationsDir = path.join(process.cwd(), 'output/conversations');
   
   // Create the conversations directory if it doesn't exist
   if (!fs.existsSync(conversationsDir)) {

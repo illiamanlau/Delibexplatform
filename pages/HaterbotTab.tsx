@@ -59,7 +59,7 @@ const HaterbotTab: React.FC = () => {
       haterbotFlags.names && `--names ${haterbotFlags.namesValue}`,
     ].filter(Boolean);
 
-    const command = `python3 hate_speech_generator.py ${flags.join(' ')} 2>> error_log.txt`;
+    const command = `python3 hate_speech_generator.py ${flags.join(' ')} 2>> output/haterbot_error_log.txt`;
     try {
       const response = await fetch('/api/runScript', {
         method: 'POST',
@@ -139,7 +139,7 @@ const HaterbotTab: React.FC = () => {
       </div>
       <div className="mt-4">
         <h2 className="text-xl font-semibold mb-2">Command:</h2>
-        <pre className="bg-gray-100 p-4 rounded">{`python3 hate_speech_generator.py ${flags.join(' ')} 2>> error_log.txt`}</pre>
+        <pre className="bg-gray-100 p-4 rounded">{`python3 hate_speech_generator.py ${flags.join(' ')} 2>> output/haterbot_error_log.txt`}</pre>
       </div>
       <div className="mt-4">
         <h2 className="text-xl font-semibold mb-2">Output:</h2>
