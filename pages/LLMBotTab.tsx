@@ -76,7 +76,7 @@ const LLMBotTab: React.FC = () => {
       `--model ${llmFlags.model}`,
     ].filter(Boolean);
 
-    const command = `python3 main.py ${flags.join(' ')} 2>> output/llm_bot_error_log.txt`;
+    const command = `python3 src/main.py ${flags.join(' ')} 2>> output/llm_bot_error_log.txt`;
     try {
       const response = await fetch('/api/runScript', {
         method: 'POST',
@@ -198,7 +198,7 @@ const LLMBotTab: React.FC = () => {
       </div>
       <div className="mt-4">
         <h2 className="text-xl font-semibold mb-2">Command:</h2>
-        <pre className="bg-gray-100 p-4 rounded">{`python3 main.py ${flags.join(' ')} 2>> output/llm_bot_error_log.txt`}</pre>
+        <pre className="bg-gray-100 p-4 rounded">{`python3 src/main.py ${flags.join(' ')} 2>> output/llm_bot_error_log.txt`}</pre>
       </div>
       <div className="mt-4">
         <h2 className="text-xl font-semibold mb-2">Output:</h2>
