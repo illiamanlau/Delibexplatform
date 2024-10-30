@@ -11,6 +11,9 @@ api_keys.json
 *.log
 *.csv
 
+# Generated outputs
+output/
+
 # VS Code configuration
 .vscode/
 
