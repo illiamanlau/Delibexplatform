@@ -69,7 +69,7 @@ class LLMBot(ChatBot):
         super().__init__(description)
 
         description["path"] = "assets/bot-descriptions/" + description["bot-description"]
-        self.llm_client = llm_client.LLMClient({"model" : "llama3-8b-8192"}, self.logger)
+        self.llm_client = llm_client.LLMClient({"model" : llm_client.MODEL_NAME}, self.logger)
         self.typing_lock = asyncio.Lock()
 
         if description["role"] == "simple":

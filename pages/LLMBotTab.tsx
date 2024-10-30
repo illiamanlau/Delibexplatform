@@ -30,6 +30,18 @@ const styles = {
       backgroundColor: 'darkred',
     },
   },
+  linkButton: {
+    backgroundColor: '#007bff',
+    color: 'white',
+    padding: '5px 10px',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontSize: '14px',
+    marginLeft: '10px',
+    textDecoration: 'none',
+    display: 'inline-block',
+  },
   disabledInput: {
     backgroundColor: '#e0e0e0', // Gray background for disabled input
   },
@@ -44,6 +56,7 @@ const LLMBotTab: React.FC = () => {
     offline: false,
     speedup: false,
     speedupValue: 10,
+    model: 'llama3-8b-8192',
   });
 
   useEffect(() => {
@@ -60,6 +73,7 @@ const LLMBotTab: React.FC = () => {
       llmFlags.start && '--start',
       llmFlags.offline && '--offline',
       llmFlags.speedup && `--speedup ${llmFlags.speedupValue}`,
+      `--model ${llmFlags.model}`,
     ].filter(Boolean);
 
     const command = `python3 main.py ${flags.join(' ')} 2>> output/llm_bot_error_log.txt`;
@@ -84,6 +98,7 @@ const LLMBotTab: React.FC = () => {
     llmFlags.start && '--start',
     llmFlags.offline && '--offline',
     llmFlags.speedup && `--speedup ${llmFlags.speedupValue}`,
+    `--model ${llmFlags.model}`,
   ].filter(Boolean);
 
   return (
@@ -138,6 +153,33 @@ const LLMBotTab: React.FC = () => {
             disabled={!llmFlags.speedup}
             style={!llmFlags.speedup ? styles.disabledInput : {}}
           />
+        </label>
+      </div>
+      <div className="mb-4">
+        <label className="block mb-2">
+          <span className="font-semibold">Specify model </span>
+          <input
+            type="text"
+            value={llmFlags.model}
+            onChange={(e) => setLlmFlags({ ...llmFlags, model: e.target.value })}
+            className="border p-1 ml-2 rounded w-40"
+          />
+          <a
+            href="https://console.groq.com/docs/models"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.linkButton}
+          >
+            List of Groq models
+          </a>
+          <a
+            href="https://platform.openai.com/docs/models"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.linkButton}
+          >
+            List of OpenAI models
+          </a>
         </label>
       </div>
       <div className="flex space-x-2 mb-4 p-4 border rounded bg-gray-100">

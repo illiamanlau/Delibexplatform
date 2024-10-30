@@ -5,6 +5,7 @@ import argparse
 import chatbot
 from message_monitor import MessageMonitor  # Import the new MessageMonitor class
 import utils
+import llm_client
 
 def get_experiment_description_file(experiment_name):
     return f"assets/experiment-descriptions/{experiment_name}.json"
@@ -42,6 +43,14 @@ def parse_args():
         help='Bots will start participating right away with a default message'
     )
     
+    # Adding mandatory model argument
+    parser.add_argument(
+        '--model',
+        type=str,
+        required=True,
+        help='Specify the model to be used (e.g., llama3-8b-8192)'
+    )
+
     # Parsing arguments
     args = parser.parse_args()
     
@@ -57,16 +66,16 @@ def process_args(args):
         print(f"Speed up factor set to: {utils.SPEED_UP_FACTOR}")
     else:
         print(f"Speed up factor remains unchanged at: {utils.SPEED_UP_FACTOR}")
-
     # Set OFFLINE from utils
     if args.offline is not None:
         utils.OFFLINE = args.offline
         print(f"Offline flag set to: {utils.OFFLINE}")
-
+    
+    # Set MODEL_NAME from llm_client
+    llm_client.MODEL_NAME = args.model
+    print(f"Model set to: {llm_client.MODEL_NAME}")
+    
     print(f"Experiment description: {get_experiment_description_file(args.experiment_description)}")
-
-def build_system_prompt(general_system_prompt, bot_system_prompt):
-    return '\n'.join(general_system_prompt + [''] + bot_system_prompt)
 
 # Parse and process args
 args = parse_args()

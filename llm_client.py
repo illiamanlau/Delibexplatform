@@ -1,5 +1,7 @@
 import utils
 
+MODEL_NAME = None
+
 import groq, openai
 
 def get_client(model):
