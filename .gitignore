@@ -4,8 +4,6 @@ __pycache__/
 
 # Environment variables and sensitive information
 .env
-.env*.local
-api_keys.json
 
 # Log files and data
 *.log

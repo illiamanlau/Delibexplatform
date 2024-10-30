@@ -2,6 +2,7 @@ import json
 import logging
 import random
 import re
+import os
 import asyncio
 
 from constants import *
@@ -31,8 +32,7 @@ def read_file_text(filepath):
         return file.read()
 
 def get_api_key(name):
-    with open('api_keys.json', 'r') as file:
-        return json.load(file)[name]
+    return os.getenv(f"{name.upper()}_API_KEY")
 
 def build_message(role, content, name = None):
     assert(role in ['system', 'user', 'assistant'])
