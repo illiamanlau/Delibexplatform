@@ -54,13 +54,19 @@ const ReadOnlyFileExplorer: React.FC = () => {
       <div key={node.id} style={{ marginLeft: node.type === 'folder' ? 20 : 40 }}>
         {node.type === 'folder' ? (
           <div>
-            <div onClick={() => handleFolderClick(node.path)} style={{ cursor: 'pointer', fontWeight: 'bold' }}>
+            <div
+              onClick={() => handleFolderClick(node.path)}
+              style={{ cursor: 'pointer', fontWeight: 'bold', display: 'flex', alignItems: 'center' }}
+            >
               {expandedFolders.has(node.path) ? '▼' : '▶'} {node.name}
             </div>
             {expandedFolders.has(node.path) && node.children && renderFileTree(node.children)}
           </div>
         ) : (
-          <div onClick={() => handleFileClick(node.path)} style={{ cursor: 'pointer' }}>
+          <div
+            onClick={() => handleFileClick(node.path)}
+            style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
+          >
             {node.name}
           </div>
         )}
@@ -69,13 +75,13 @@ const ReadOnlyFileExplorer: React.FC = () => {
   };
 
   return (
-    <div>
-      <h1>Output File Explorer</h1>
-      <div>{renderFileTree(fileTree)}</div>
+    <div className="file-explorer">
+      <h1 className="text-xl font-bold mb-4">Output File Explorer</h1>
+      <div className="file-tree">{renderFileTree(fileTree)}</div>
       {fileContent && (
-        <div>
-          <h2>File Content</h2>
-          <pre>{fileContent}</pre>
+        <div className="file-content mt-4">
+          <h2 className="text-lg font-bold">File Content</h2>
+          <pre className="p-2 border rounded">{fileContent}</pre>
         </div>
       )}
     </div>
