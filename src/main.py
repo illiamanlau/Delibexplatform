@@ -7,6 +7,9 @@ from message_monitor import MessageMonitor  # Import the new MessageMonitor clas
 import utils
 import llm_client
 
+import faulthandler
+faulthandler.enable()
+
 def get_experiment_description_file(experiment_name):
     return f"assets/experiment-descriptions/{experiment_name}.json"
 

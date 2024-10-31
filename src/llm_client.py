@@ -1,14 +1,15 @@
+import groq, openai
+import time
+
 import utils
 
 MODEL_NAME = None
 
-import groq, openai
-
 def get_client(model):
     if "llama" in model:
-        return groq.Groq(api_key=utils.get_api_key("groq"))
+        return groq.Groq(api_key=utils.get_api_key("GROQ"))
     else:
-        return openai.OpenAI(api_key=utils.get_api_key("openai"))
+        return openai.OpenAI(api_key=utils.get_api_key("OPENAI"))
 
 class LLMClient():
     def __init__(self, settings, logger = None):
@@ -31,13 +32,22 @@ class LLMClient():
         return response
 
     def complete_from_message(self, message, system_prompt = None):
+        start_time = time.time()
+        
         completion_settings = self.settings.copy()
         completion_settings["messages"] = [{"role": "user", "content": message}]
         if system_prompt: completion_settings["messages"].append({"role": "system", "content": system_prompt})
+        
         response_text = self.get_response_from_completion(completion_settings)
+        
+        end_time = time.time()
+        execution_time = end_time - start_time
+        
         self.log(f'Completed message ending in {message[-100:]}, response starts with {response_text[:100]}')
+        self.log(f'Execution time: {execution_time:.2f} seconds')
+        
         return response_text
-    
+
     def continue_conversation(self, messages):
         self.log(f'Continuing conversation ending in {messages[-1]["content"][-100:]}')
         completion_settings = self.settings

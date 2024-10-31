@@ -6,11 +6,25 @@ export default function Home() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [chatRoom, setChatRoom] = useState('');
+  const [error, setError] = useState('');
   const router = useRouter();
+
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const regex = /^[a-zA-Z0-9_-]*$/;
+
+    if (!regex.test(value)) {
+      setError('Username can only contain letters, numbers, underscores, and hyphens. No spaces or special characters are allowed.');
+    } else {
+      setError('');
+    }
+
+    setName(value);
+  };
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (name.trim() && email.trim() && chatRoom.trim()) {
+    if (name.trim() && email.trim() && chatRoom.trim() && !error) {
       // Store user info in localStorage
       localStorage.setItem('userName', name);
       localStorage.setItem('userEmail', email);
@@ -26,10 +40,11 @@ export default function Home() {
         <input
           type="text"
           value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter your name"
+          onChange={handleUsernameChange}
+          placeholder="Enter your username"
           className="w-full p-3 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
+        {error && <p className="text-red-500">{error}</p>}
         <input
           type="email"
           value={email}

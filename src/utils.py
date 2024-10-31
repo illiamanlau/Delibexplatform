@@ -2,10 +2,15 @@ import json
 import logging
 import random
 import re
+from dotenv import load_dotenv
 import os
+
 import asyncio
 
 from constants import *
+
+# Specify the path to the .env file in the root directory
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '../.env'))
 
 def print_json(data, force_print = False):
     if force_print:

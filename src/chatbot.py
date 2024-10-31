@@ -3,6 +3,7 @@ import conversation_manager
 import api
 import utils
 import os
+import re
 from datetime import datetime
 
 import asyncio
@@ -12,11 +13,14 @@ SEND_INITIAL_MESSAGE = False
 
 class ChatBot():
     def __init__(self, description):
+        pattern = re.compile(r'^[a-zA-Z0-9_-]+$')
+        assert pattern.match(description["username"]), "Username can only contain letters, numbers, underscores, and hyphens. No spaces or special characters are allowed."
+
         self.description = description
-        self.logger = utils.get_logger(description["display-name"])
+        self.logger = utils.get_logger(description["username"])
 
     async def start_bot(self):
-        self.log(f'Starting ChatBot {self.description["display-name"]}')
+        self.log(f'Starting ChatBot {self.description["username"]}')
         await self.on_ready()
 
     def log(self, msg):
@@ -30,19 +34,16 @@ class ChatBot():
         self.log(f'Sending message {message[:100]}')
         response = api.send_message({
             "roomId": self.description["chatroom"],
-            "name": self.description["display-name"],
+            "name": self.description["username"],
             "email": self.description["email"],
             "content": message,
         })
         self.log(f"RESPONSE: {response}")
 
     async def update_messages(self, messages):
-        self.log(f'update_messages()')
-
         try:
             # Update message list, get whether we need to write a message afterwards
             write_afterwards = await self.messages.update_messages(messages)
-            self.log(f"write_afterwards is {write_afterwards}")
 
             # No message to write
             if not write_afterwards: return
@@ -90,7 +91,7 @@ class LLMBot(ChatBot):
         timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
 
         # Construct the full file path
-        file_path = os.path.join(output_dir, f"{timestamp}.txt")
+        file_path = os.path.join(output_dir, f"{llm_client.MODEL_NAME}-{timestamp}.txt")
 
         # Write the system prompt to the file
         with open(file_path, 'w') as file:
@@ -101,10 +102,10 @@ class LLMBot(ChatBot):
 
         # Build message recorder
         self.messages = conversation_manager.ChatHistoryInteractionManager(
-            self.description["display-name"], "test", self.logger)
+            self.description["username"], "test", self.logger)
 
         greeting = self.llm_client.complete_from_message("Hi!", self.system_prompt)
-        self.log(f'Bot is connected and ready as {self.description["display-name"]}. "{greeting}"')
+        self.log(f'Bot is connected and ready as {self.description["username"]}. "{greeting}"')
         
         if SEND_INITIAL_MESSAGE:
             await self.send_message("hello everyone!", recorder=self.messages, greeting=True)

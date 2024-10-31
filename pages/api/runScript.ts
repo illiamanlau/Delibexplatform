@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (action === 'stop') {
       if (currentProcess) {
         // Kill the process and all its child processes
-        process.platform === 'win32' ? exec(`taskkill /pid ${currentProcess.pid} /T /F`) : currentProcess.kill('SIGTERM');
+        process.platform === 'win32' ? exec(`taskkill /pid ${currentProcess.pid} /T /F`) : currentProcess.kill('SIGKILL');
         if (isLLMBot) {
           llmProcess = null;
         } else {

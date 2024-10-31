@@ -1,7 +1,7 @@
 [
     {
         "bot-description" : "AntiHaterBot",
-        "display-name": "AntiHaterBot Simple Test",
+        "username": "AntiHaterBotSimpleTest",
         "email" : "antihaterbot_test@bot.bot",
         "chatroom" : "test",
         "role" : "simple",
@@ -9,7 +9,7 @@
     },
     {
         "bot-description" : "AntiHaterBot",
-        "display-name": "AntiHaterBot Elaborated Test",
+        "username": "AntiHaterBotElaboratedTest",
         "email" : "antihaterbot_test@bot.bot",
         "chatroom" : "test",
         "role" : "elaborated",
@@ -17,7 +17,7 @@
     },
     {
         "bot-description" : "AntiHaterBot",
-        "display-name": "Victor Martin",
+        "username": "VictorMartin",
         "email" : "antihaterbot_e@bot.bot",
         "chatroom" : "room3A",
         "role" : "simple",
@@ -25,7 +25,7 @@
     },
     {
         "bot-description" : "AntiHaterBot",
-        "display-name": "Victor Martin",
+        "username": "VictorMartin",
         "email" : "antihaterbot_f@bot.bot",
         "chatroom" : "room3B",
         "role" : "simple",
@@ -33,7 +33,7 @@
     },
     {
         "bot-description" : "AntiHaterBot",
-        "display-name": "Victor Martin",
+        "username": "VictorMartin",
         "email" : "antihaterbot_g@bot.bot",
         "chatroom" : "room4A",
         "role" : "elaborated",
@@ -41,7 +41,7 @@
     },
     {
         "bot-description" : "AntiHaterBot",
-        "display-name": "Victor Martin",
+        "username": "VictorMartin",
         "email" : "antihaterbot_h@bot.bot",
         "chatroom" : "room4B",
         "role" : "elaborated",
