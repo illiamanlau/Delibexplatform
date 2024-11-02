@@ -1,4 +1,3 @@
-// components/ReadOnlyFileExplorer.tsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -49,6 +48,21 @@ const ReadOnlyFileExplorer: React.FC = () => {
     });
   };
 
+  const handleDownloadClick = async () => {
+    try {
+      const response = await axios.get('/api/outputFiles', { params: { download: 'true' }, responseType: 'blob' });
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'output.zip');
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    } catch (error) {
+      console.error('Error downloading zip file:', error);
+    }
+  };
+
   const renderFileTree = (nodes: FileNode[]) => {
     return nodes.map(node => (
       <div key={node.id} style={{ marginLeft: node.type === 'folder' ? 20 : 40 }}>
@@ -77,6 +91,7 @@ const ReadOnlyFileExplorer: React.FC = () => {
   return (
     <div className="file-explorer">
       <h1 className="text-xl font-bold mb-4">Output File Explorer</h1>
+      <button onClick={handleDownloadClick} className="mb-4 p-2 bg-blue-500 text-white rounded">Download All Files</button>
       <div className="file-tree">{renderFileTree(fileTree)}</div>
       {fileContent && (
         <div className="file-content mt-4">
