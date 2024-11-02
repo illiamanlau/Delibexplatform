@@ -78,10 +78,22 @@ const AdminPage: React.FC = () => {
           Haterbot
         </button>
         <button
+          onClick={() => setActiveTab('Messages')}
+          className={`p-2 rounded ${activeTab === 'Messages' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+        >
+          Delete messages
+          </button>
+          <button
           onClick={() => setActiveTab('File Explorer')}
           className={`p-2 rounded ${activeTab === 'File Explorer' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
         >
-          File Explorer
+          Experiment and bot settings
+        </button>
+        <button
+          onClick={() => setActiveTab('Output Explorer')}
+          className={`p-2 rounded ${activeTab === 'Output Explorer' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+        >
+          Generated Outputs
         </button>
         <button
           onClick={() => setActiveTab('Documentation')}
@@ -89,26 +101,14 @@ const AdminPage: React.FC = () => {
         >
           Documentation
         </button>
-        <button
-          onClick={() => setActiveTab('Messages')}
-          className={`p-2 rounded ${activeTab === 'Messages' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
-        >
-          Messages
-        </button>
-        <button
-          onClick={() => setActiveTab('Output Explorer')}
-          className={`p-2 rounded ${activeTab === 'Output Explorer' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
-        >
-          Output Explorer
-        </button>
       </div>
       <div className="tab-content">
         {activeTab === 'LLM bot' && <LLMBotTab />}
         {activeTab === 'Haterbot' && <HaterbotTab />}
-        {activeTab === 'File Explorer' && <FileExplorerTab />}
-        {activeTab === 'Documentation' && <DocumentationTab />}
         {activeTab === 'Messages' && <MessagesTab />}
+        {activeTab === 'File Explorer' && <FileExplorerTab />}
         {activeTab === 'Output Explorer' && <ReadOnlyFileExplorer />} {/* Ensure the correct folder path */}
+        {activeTab === 'Documentation' && <DocumentationTab />}
       </div>
     </div>
   );

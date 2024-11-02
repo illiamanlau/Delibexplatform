@@ -1,6 +1,6 @@
 # Messaging app documentation:
 
-Feel free to email [victormartin96@outlook.com](mailto:example@example.com) to request changes, impromevents, fixes or clarifications
+Feel free to email [victormartin96@outlook.com](victormartin96@outlook.com) to request changes, impromevents, fixes or clarifications
 
 ## Settings
 
