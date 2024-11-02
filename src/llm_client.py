@@ -6,7 +6,7 @@ import utils
 MODEL_NAME = None
 
 def get_client(model):
-    if "llama" in model:
+    if any(substr in model for substr in ["llama", "distil", "gemma", "mixtral"]):
         return groq.Groq(api_key=utils.get_api_key("GROQ"))
     else:
         return openai.OpenAI(api_key=utils.get_api_key("OPENAI"))
