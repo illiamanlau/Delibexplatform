@@ -23,7 +23,7 @@ NAMES = 4    # Number of bot names to be used
 
 def get_parsed_args():
     # Set up argument parser
-    parser = argparse.ArgumentParser(description="Update frequency and names.")
+    parser = argparse.ArgumentParser(description="Update frequency, names, and room IDs.")
     
     # Add optional --freq argument
     parser.add_argument(
@@ -38,18 +38,27 @@ def get_parsed_args():
         type=int,
         help='Number of bot names, defaults to 4'
     )
+    
+    # Add mandatory --roomIds argument
+    parser.add_argument(
+        '--roomIds',
+        required=True,
+        help='Comma-separated list of room IDs'
+    )
 
     # Parse the arguments
     return parser.parse_args()
 
 def process_parsed_args(args):
-    global FREQ, NAMES
+    global FREQ, NAMES, room_ids
     # Update the frequency if provided
     if args.freq is not None:
         FREQ = args.freq
     # Update the number of names if provided
     if args.names is not None:
         NAMES = args.names
+    # Split the roomIds argument into a list
+    room_ids = args.roomIds.strip(',').split(',')
 
 process_parsed_args(get_parsed_args())
 
@@ -63,12 +72,15 @@ for i, content in enumerate(attack_cycle):
     
     # Construct the bot name with a cyclic number based on NAMES
     name = "HaterBot" + str(3000 + number_list[i % NAMES])
-    response = api.send_message({
-        "roomId": "test",
-        "name": name,
-        "email": name + '@bot.bot',
-        "content": content,
-    })
+    
+    # Iterate over each roomId and send the message
+    for room_id in room_ids:
+        response = api.send_message({
+            "roomId": room_id,
+            "name": name,
+            "email": name + '@bot.bot',
+            "content": content,
+        })
     
     # Wait for the specified time interval before the next message
     time.sleep(FREQ)

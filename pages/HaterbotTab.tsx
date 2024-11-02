@@ -33,6 +33,11 @@ const styles = {
   disabledInput: {
     backgroundColor: '#e0e0e0', // Gray background for disabled input
   },
+  errorText: {
+    color: 'red',
+    fontSize: '14px',
+    marginTop: '5px',
+  },
 };
 
 // HaterbotTab component for managing the Haterbot settings and execution
@@ -44,6 +49,8 @@ const HaterbotTab: React.FC = () => {
     names: false,
     namesValue: 4,
   });
+  const [roomIds, setRoomIds] = useState("test,room1A,room1B,room2A,room2B,room3A,room3B,room4A,room4B");
+  const [roomIdsError, setRoomIdsError] = useState('');
 
   useEffect(() => {
     setState((prevState) => ({ ...prevState, haterbotFlags }));
@@ -57,6 +64,7 @@ const HaterbotTab: React.FC = () => {
     const flags = [
       haterbotFlags.freq && `--freq ${haterbotFlags.freqValue}`,
       haterbotFlags.names && `--names ${haterbotFlags.namesValue}`,
+      `--roomIds ${roomIds}`,
     ].filter(Boolean);
 
     const command = `python3 src/hate_speech_generator.py ${flags.join(' ')} 2>> output/haterbot_error_log.txt`;
@@ -79,7 +87,18 @@ const HaterbotTab: React.FC = () => {
   const flags = [
     haterbotFlags.freq && `--freq ${haterbotFlags.freqValue}`,
     haterbotFlags.names && `--names ${haterbotFlags.namesValue}`,
+    `--roomIds ${roomIds}`,
   ].filter(Boolean);
+
+  const handleRoomIdsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (/^[a-zA-Z0-9,._-]*$/.test(value)) {
+      setRoomIds(value);
+      setRoomIdsError('');
+    } else {
+      setRoomIdsError('Room IDs can only contain letters, digits, "-", and "_".');
+    }
+  };
 
   return (
     <div className="p-4 border rounded shadow-md">
@@ -123,10 +142,23 @@ const HaterbotTab: React.FC = () => {
           <span className="font-semibold ml-2"> different names</span>
         </label>
       </div>
+      <div className="mb-4">
+        <label className="block mb-2">
+          <span className="font-semibold">List of rooms (comma-separated, with no spaces in between) where the haterbots will be activated: </span>
+          <input
+            type="text"
+            value={roomIds}
+            onChange={handleRoomIdsChange}
+            className="border p-1 ml-2 rounded w-full"
+          />
+          {roomIdsError && <div style={styles.errorText}>{roomIdsError}</div>}
+        </label>
+      </div>
       <div className="flex space-x-2 mb-4 p-4 border rounded bg-gray-100">
         <button
           onClick={() => handleScriptExecution('start')}
           style={styles.runButton}
+          disabled={!!roomIdsError}
         >
           Run
         </button>
