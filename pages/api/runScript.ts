@@ -15,16 +15,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (action === 'stop') {
       if (currentProcess) {
-        // Kill the process and all its child processes
-        process.platform === 'win32' ? exec(`taskkill /pid ${currentProcess.pid} /T /F`) : currentProcess.kill('SIGKILL');
-        if (isLLMBot) {
-          llmProcess = null;
-        } else {
-          haterbotProcess = null;
-        }
-        return res.status(200).json({ message: 'Script execution stopped.' });
+        // Kill all instances of the specific script
+        const scriptName = isLLMBot ? 'main.py' : 'hate_speech_generator.py';
+        exec(`pkill -f ${scriptName}`, (error, stdout, stderr) => {
+          if (error) {
+            console.error(`Error stopping scripts: ${error}`);
+            return res.status(500).json({ message: 'Error stopping scripts', error: stderr });
+          }
+          if (isLLMBot) {
+            llmProcess = null;
+          } else {
+            haterbotProcess = null;
+          }
+          return res.status(200).json({ message: 'Script execution stopped.' });
+        });
+      } else {
+        return res.status(400).json({ message: 'No script currently running.' });
       }
-      return res.status(400).json({ message: 'No script currently running.' });
     }
 
     if (action === 'start') {
