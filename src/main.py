@@ -1,13 +1,14 @@
 import asyncio
 import json
 import argparse
-
+import time
 import chatbot
-from message_monitor import MessageMonitor  # Import the new MessageMonitor class
 import utils
 import llm_client
-
 import faulthandler
+
+from message_monitor import MessageMonitor  # Import the new MessageMonitor class
+
 faulthandler.enable()
 
 def get_experiment_description_file(experiment_name):
@@ -54,6 +55,13 @@ def parse_args():
         help='Specify the model to be used (e.g., llama3-8b-8192)'
     )
 
+    # Adding optional delay_seconds argument
+    parser.add_argument(
+        '--delay_seconds',
+        type=float,
+        help='Delay initialization by a specified number of seconds'
+    )
+
     # Parsing arguments
     args = parser.parse_args()
     
@@ -79,6 +87,10 @@ def process_args(args):
     print(f"Model set to: {llm_client.MODEL_NAME}")
     
     print(f"Experiment description: {get_experiment_description_file(args.experiment_description)}")
+
+    if args.delay_seconds is not None:
+        print(f"Sleeping for {args.delay_seconds} seconds before initialization")
+        time.sleep(args.delay_seconds)
 
 # Parse and process args
 args = parse_args()

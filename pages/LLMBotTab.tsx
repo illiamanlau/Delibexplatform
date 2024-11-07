@@ -57,6 +57,9 @@ const LLMBotTab: React.FC = () => {
     speedup: false,
     speedupValue: 10,
     model: 'llama3-8b-8192',
+    delay: false,
+    delayMinutes: 0,
+    delaySeconds: 0,
   });
 
   useEffect(() => {
@@ -74,6 +77,7 @@ const LLMBotTab: React.FC = () => {
       llmFlags.offline && '--offline',
       llmFlags.speedup && `--speedup ${llmFlags.speedupValue}`,
       `--model ${llmFlags.model}`,
+      llmFlags.delay && `--delay_seconds ${llmFlags.delayMinutes * 60 + llmFlags.delaySeconds}`,
     ].filter(Boolean);
 
     const command = `python3 src/main.py ${flags.join(' ')} 2>> output/error_logs/llm_bot_error_log.txt`;
@@ -99,6 +103,7 @@ const LLMBotTab: React.FC = () => {
     llmFlags.offline && '--offline',
     llmFlags.speedup && `--speedup ${llmFlags.speedupValue}`,
     `--model ${llmFlags.model}`,
+    llmFlags.delay && `--delay_seconds ${llmFlags.delayMinutes * 60 + llmFlags.delaySeconds}`,
   ].filter(Boolean);
 
   return (
@@ -180,6 +185,35 @@ const LLMBotTab: React.FC = () => {
           >
             List of OpenAI models
           </a>
+        </label>
+      </div>
+      <div className="mb-4">
+        <label className="block mb-2">
+          <input
+            type="checkbox"
+            checked={llmFlags.delay}
+            onChange={(e) => setLlmFlags({ ...llmFlags, delay: e.target.checked })}
+            className="mr-2"
+          />
+          <span className="font-semibold">Delay initialization by </span>
+          <input
+            type="number"
+            value={llmFlags.delayMinutes}
+            onChange={(e) => setLlmFlags({ ...llmFlags, delayMinutes: parseInt(e.target.value) })}
+            className="border p-1 ml-2 rounded w-12"
+            disabled={!llmFlags.delay}
+            style={!llmFlags.delay ? styles.disabledInput : {}}
+          />
+          <span className="ml-2"> minutes </span>
+          <input
+            type="number"
+            value={llmFlags.delaySeconds}
+            onChange={(e) => setLlmFlags({ ...llmFlags, delaySeconds: parseInt(e.target.value) })}
+            className="border p-1 ml-2 rounded w-12"
+            disabled={!llmFlags.delay}
+            style={!llmFlags.delay ? styles.disabledInput : {}}
+          />
+          <span className="ml-2">seconds</span>
         </label>
       </div>
       <div className="flex space-x-2 mb-4 p-4 border rounded bg-gray-100">
