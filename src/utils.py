@@ -12,7 +12,7 @@ from constants import *
 # Specify the path to the .env file in the root directory
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '../.env'))
 
-def print_json(data, force_print = False):
+def print_json(data, force_print=False):
     if force_print:
         print(json.dumps(data, indent=2))
 
@@ -39,12 +39,12 @@ def read_file_text(filepath):
 def get_api_key(name):
     return os.getenv(f"{name.upper()}_API_KEY")
 
-def build_message(role, content, name = None):
-    assert(role in ['system', 'user', 'assistant'])
+def build_message(role, content, name=None):
+    assert role in ['system', 'user', 'assistant'], f"Invalid role: {role}"
     if name is None:
-        return {'role' : role, 'content' : content}
+        return {'role': role, 'content': content}
     else:
-        return {'role' : role, 'content' : content, 'name' : name}
+        return {'role': role, 'content': content, 'name': name}
 
 async def bot_sleep(time_s, logger=None):
     if logger:
@@ -57,9 +57,13 @@ def get_reading_time(message_len: int):
 def get_writing_time(message):
     return (len(message)/WRITE_SPEED + random.randint(MIN_IDLE_WRITE_TIME_MS, MAX_IDLE_WRITE_TIME_MS)/S_TO_MS)/SPEED_UP_FACTOR
 
-# Set logging up
-
+# Set up logging
 def get_logger(name):
+    # Ensure the output/logs directory exists
+    log_directory = 'output/logs'
+    if not os.path.exists(log_directory):
+        os.makedirs(log_directory)
+
     # Create a custom logger
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
@@ -68,7 +72,7 @@ def get_logger(name):
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
 
-    file_handler = logging.FileHandler(f'output/logs/{name}.log')
+    file_handler = logging.FileHandler(f'{log_directory}/{name}.log')
     file_handler.setLevel(logging.INFO)
 
     # Create formatters and add them to handlers

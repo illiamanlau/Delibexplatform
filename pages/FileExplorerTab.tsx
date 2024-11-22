@@ -1,33 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { Folder, File, ChevronRight, ChevronDown, Plus, Trash, Edit2, Copy, FileText } from 'lucide-react';
-import { TextareaAutosize, Button } from '@material-ui/core';
+import React, { useState, useEffect } from "react";
+import {
+  Folder,
+  File,
+  ChevronRight,
+  ChevronDown,
+  Plus,
+  Trash,
+  Edit2,
+  Copy,
+  FileText,
+} from "lucide-react";
+import { TextareaAutosize, Button } from "@mui/material";
 
 interface FileNode {
   id: string;
   name: string;
-  type: 'file' | 'folder';
+  type: "file" | "folder";
   children?: FileNode[];
   path: string;
 }
 
 const FileExplorer = () => {
   const [files, setFiles] = useState<FileNode[]>([]);
-  const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set());
+  const [expandedFolders, setExpandedFolders] = useState<Set<string>>(
+    new Set()
+  );
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [editingFile, setEditingFile] = useState<{ path: string; content: string } | null>(null);
+  const [editingFile, setEditingFile] = useState<{
+    path: string;
+    content: string;
+  } | null>(null);
   const [unsavedChanges, setUnsavedChanges] = useState(false);
 
   const fetchFiles = async () => {
     try {
-      const response = await fetch('/api/files');
-      if (!response.ok) throw new Error('Failed to fetch files');
+      const response = await fetch("/api/files");
+      if (!response.ok) throw new Error("Failed to fetch files");
       const data = await response.json();
       setFiles(data);
       setError(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error fetching files');
+      setError(err instanceof Error ? err.message : "Error fetching files");
     } finally {
       setLoading(false);
     }
@@ -40,14 +55,14 @@ const FileExplorer = () => {
   // Handle Ctrl+S for saving
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === 's' && editingFile) {
+      if ((e.ctrlKey || e.metaKey) && e.key === "s" && editingFile) {
         e.preventDefault();
         handleSaveFile();
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [editingFile]);
 
   // Prompt user before leaving if there are unsaved changes
@@ -55,141 +70,143 @@ const FileExplorer = () => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       if (unsavedChanges) {
         e.preventDefault();
-        e.returnValue = '';
+        e.returnValue = "";
       }
     };
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, [unsavedChanges]);
 
   const handleOpenFile = async (path: string) => {
     try {
-      const response = await fetch(`/api/files?action=read&path=${encodeURIComponent(path)}`);
-      if (!response.ok) throw new Error('Failed to read file');
+      const response = await fetch(
+        `/api/files?action=read&path=${encodeURIComponent(path)}`
+      );
+      if (!response.ok) throw new Error("Failed to read file");
       const { content } = await response.json();
       setEditingFile({ path, content });
       setUnsavedChanges(false);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error reading file');
+      setError(err instanceof Error ? err.message : "Error reading file");
     }
   };
 
   const handleSaveFile = async () => {
     if (!editingFile) return;
-  
+
     try {
-      const response = await fetch('/api/files', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/files", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          operation: 'writeFile', // Correct operation name
+          operation: "writeFile", // Correct operation name
           path: editingFile.path,
-          content: editingFile.content
-        })
+          content: editingFile.content,
+        }),
       });
-  
-      if (!response.ok) throw new Error('Failed to save file');
+
+      if (!response.ok) throw new Error("Failed to save file");
       setUnsavedChanges(false);
       await fetchFiles(); // Refresh the file list after saving
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error saving file');
+      setError(err instanceof Error ? err.message : "Error saving file");
     }
   };
 
-  const handleNewFile = async (parentPath: string = '') => {
-    const fileName = prompt('Enter file name:');
+  const handleNewFile = async (parentPath: string = "") => {
+    const fileName = prompt("Enter file name:");
     if (!fileName) return;
 
     try {
       const fullPath = parentPath ? `${parentPath}/${fileName}` : fileName;
-      const response = await fetch('/api/files', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/files", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          operation: 'save',
+          operation: "save",
           path: fullPath,
-          content: '' // Create an empty file
-        })
+          content: "", // Create an empty file
+        }),
       });
 
-      if (!response.ok) throw new Error('Failed to create file');
+      if (!response.ok) throw new Error("Failed to create file");
       await fetchFiles();
       // Open the new file automatically
       handleOpenFile(fullPath);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error creating file');
+      setError(err instanceof Error ? err.message : "Error creating file");
     }
   };
 
-  const handleNewFolder = async (parentPath: string = '') => {
-    const folderName = prompt('Enter folder name:');
+  const handleNewFolder = async (parentPath: string = "") => {
+    const folderName = prompt("Enter folder name:");
     if (!folderName) return;
 
     try {
-      const response = await fetch('/api/files', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/files", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          operation: 'createFolder',
+          operation: "createFolder",
           path: parentPath,
           name: folderName,
-          type: 'folder'
-        })
+          type: "folder",
+        }),
       });
 
-      if (!response.ok) throw new Error('Failed to create folder');
+      if (!response.ok) throw new Error("Failed to create folder");
       await fetchFiles();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error creating folder');
+      setError(err instanceof Error ? err.message : "Error creating folder");
     }
   };
 
   const handleDelete = async (path: string) => {
-    if (!confirm('Are you sure you want to delete this item?')) return;
+    if (!confirm("Are you sure you want to delete this item?")) return;
 
     try {
-      const response = await fetch('/api/files', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/files", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          operation: 'delete',
-          path
-        })
+          operation: "delete",
+          path,
+        }),
       });
 
-      if (!response.ok) throw new Error('Failed to delete item');
+      if (!response.ok) throw new Error("Failed to delete item");
       if (editingFile?.path === path) {
         setEditingFile(null);
       }
       await fetchFiles();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error deleting item');
+      setError(err instanceof Error ? err.message : "Error deleting item");
     }
   };
 
   const handleRename = async (path: string, oldName: string) => {
-    const newName = prompt('Enter new name:', oldName);
+    const newName = prompt("Enter new name:", oldName);
     if (!newName || newName === oldName) return;
 
     try {
-      const response = await fetch('/api/files', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/files", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          operation: 'rename',
+          operation: "rename",
           path,
-          name: newName
-        })
+          name: newName,
+        }),
       });
 
-      if (!response.ok) throw new Error('Failed to rename item');
+      if (!response.ok) throw new Error("Failed to rename item");
       if (editingFile?.path === path) {
         setEditingFile(null);
       }
       await fetchFiles();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error renaming item');
+      setError(err instanceof Error ? err.message : "Error renaming item");
     }
   };
 
@@ -198,20 +215,20 @@ const FileExplorer = () => {
     if (!newName) return;
 
     try {
-      const response = await fetch('/api/files', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/files", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          operation: 'copy',
+          operation: "copy",
           path,
-          name: newName
-        })
+          name: newName,
+        }),
       });
 
-      if (!response.ok) throw new Error('Failed to copy item');
+      if (!response.ok) throw new Error("Failed to copy item");
       await fetchFiles();
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error copying item');
+      setError(err instanceof Error ? err.message : "Error copying item");
     }
   };
 
@@ -226,21 +243,21 @@ const FileExplorer = () => {
   };
 
   const renderFileTree = (nodes: FileNode[], level = 0) => {
-    return nodes.map(node => (
+    return nodes.map((node) => (
       <div key={node.id} className="select-none">
         <div
           className={`flex items-center p-1 hover:bg-gray-100 ${
-            selectedItem === node.id ? 'bg-blue-100' : ''
+            selectedItem === node.id ? "bg-blue-100" : ""
           }`}
           style={{ paddingLeft: `${level * 20}px` }}
           onClick={() => {
             setSelectedItem(node.id);
-            if (node.type === 'file') {
+            if (node.type === "file") {
               handleOpenFile(node.path);
             }
           }}
         >
-          {node.type === 'folder' && (
+          {node.type === "folder" && (
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -255,7 +272,7 @@ const FileExplorer = () => {
               )}
             </button>
           )}
-          {node.type === 'folder' ? (
+          {node.type === "folder" ? (
             <Folder className="w-4 h-4 text-blue-500 mr-2" />
           ) : (
             <File className="w-4 h-4 text-gray-500 mr-2" />
@@ -263,7 +280,7 @@ const FileExplorer = () => {
           <span>{node.name}</span>
           {selectedItem === node.id && (
             <div className="ml-auto flex gap-2">
-              {node.type === 'folder' && (
+              {node.type === "folder" && (
                 <>
                   <button
                     onClick={(e) => {
@@ -320,7 +337,7 @@ const FileExplorer = () => {
             </div>
           )}
         </div>
-        {node.type === 'folder' &&
+        {node.type === "folder" &&
           expandedFolders.has(node.id) &&
           node.children &&
           renderFileTree(node.children, level + 1)}
@@ -359,12 +376,10 @@ const FileExplorer = () => {
               </button>
             </div>
           </div>
-          <div className="border rounded">
-            {renderFileTree(files)}
-          </div>
+          <div className="border rounded">{renderFileTree(files)}</div>
         </div>
       </div>
-      
+
       {editingFile && (
         <div className="flex-1 flex flex-col p-4">
           <TextareaAutosize
@@ -374,7 +389,7 @@ const FileExplorer = () => {
               setEditingFile({ ...editingFile, content: e.target.value });
               setUnsavedChanges(true);
             }}
-            style={{ resize: 'both' }}
+            style={{ resize: "both" }}
           />
           <Button
             variant="contained"
