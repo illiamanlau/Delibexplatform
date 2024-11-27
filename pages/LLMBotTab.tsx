@@ -56,7 +56,7 @@ const LLMBotTab: React.FC = () => {
     offline: false,
     speedup: false,
     speedupValue: 10,
-    model: 'llama3-8b-8192',
+    model: 'gpt-4o',
     delay: false,
     delayMinutes: 0,
     delaySeconds: 0,
