@@ -74,7 +74,7 @@ class LLMBot(ChatBot):
         self.typing_lock = asyncio.Lock()
 
         if description["role"] == "simple":
-            self.system_prompt = utils.join_paragraphs(map(utils.read_file_text, [
+            self.system_prompt = utils.join_paragraphs(*map(utils.read_file_text, [
                 description["path"] + '/behavior-prompt.txt',
                 description["path"] + '/simple-prompt.txt'
             ]))
