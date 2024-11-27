@@ -91,7 +91,8 @@ class LLMBot(ChatBot):
         timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
 
         # Construct the full file path
-        file_path = os.path.join(output_dir, f"{timestamp}-{llm_client.MODEL_NAME}.txt")
+        filename = f"{timestamp}.txt" if description["role"] == "simple" else f"{timestamp}-{llm_client.MODEL_NAME}.txt"
+        file_path = os.path.join(output_dir, filename)
 
         # Write the system prompt to the file
         with open(file_path, 'w') as file:
