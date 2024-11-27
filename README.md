@@ -8,11 +8,11 @@ Can be seen and edited in the "File Explorer Tab". These are the main parts:
 
 ### Experiment descriptions
 
-List of `experiment-descriptions` JSON files. Each of them will contain a list of any participation of a bot in a room, described as follows:
+List of `experiment-descriptions` CSV files. Each of them will contain a list of any participation of a bot in a room, described as follows:
 
 - `"bot-description"`: Specifies the folder in `bot-descriptions` describing the bot prompts
 - `"username"`: Name to show in the frontend
-- `"email"`: Fake email adress to store in the generated CSV files
+- `"email"`: Fake email adress to store in the generated conversation history CSV files
 - `"chatroom"`: Room in which the bot will participate
 - `"role"`: Can be either `"simple"` or `"elaborated"`. If using elaborated prompts, the bot will make some self-reflection before participating
 - `"enable"`: if `false` the bot will not participate, if `true`, it will. Useful to activate the participation or not based on the researcher's needs.

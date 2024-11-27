@@ -1,0 +1,7 @@
+bot-description,username,email,chatroom,role,enable
+AntiHaterBot,AntiHaterBotSimpleTest,antihaterbot_test@bot.bot,test,simple,false
+AntiHaterBot,AntiHaterBotElaboratedTest,antihaterbot_test@bot.bot,test,elaborated,true
+AntiHaterBot,VictorMartin,antihaterbot_e@bot.bot,room3A,simple,false
+AntiHaterBot,VictorMartin,antihaterbot_f@bot.bot,room3B,simple,false
+AntiHaterBot,VictorMartin,antihaterbot_g@bot.bot,room4A,elaborated,false
+AntiHaterBot,VictorMartin,antihaterbot_h@bot.bot,room4B,elaborated,false

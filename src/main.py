@@ -1,18 +1,18 @@
 import asyncio
-import json
 import argparse
-import time
-import chatbot
-import utils
-import llm_client
+import csv
 import faulthandler
+import time
 
+import chatbot
+import llm_client
 from message_monitor import MessageMonitor  # Import the new MessageMonitor class
+import utils
 
 faulthandler.enable()
 
 def get_experiment_description_file(experiment_name):
-    return f"assets/experiment-descriptions/{experiment_name}.json"
+    return f"assets/experiment-descriptions/{experiment_name}.csv"
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Speedup configuration')
@@ -21,7 +21,7 @@ def parse_args():
     parser.add_argument(
         'experiment_description',
         type=str,
-        help='EXPERIMENT_NAME (as described in assets/experiment-descriptions/EXPERIMENT_NAME.json)'
+        help='EXPERIMENT_NAME (as described in assets/experiment-descriptions/EXPERIMENT_NAME.csv)'
     )
     
     # Adding optional speedup argument
@@ -98,9 +98,9 @@ process_args(args)
 
 # Read experiment description
 with open(get_experiment_description_file(args.experiment_description), 'r') as file:
-    bot_data = json.load(file)
+    bot_data = list(csv.DictReader(file))
 
-bots = list(map(chatbot.LLMBot, filter(lambda bot: bot["enable"], bot_data)))
+bots = list(map(chatbot.LLMBot, filter(lambda bot: bot["enable"] == "true", bot_data)))
 
 async def run_bots_with_monitor():
     monitor = MessageMonitor("http://localhost:3000/api/messages?roomId=test", bots)

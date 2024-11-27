@@ -5,10 +5,6 @@ __pycache__/
 # Environment variables and sensitive information
 .env
 
-# Log files and data
-*.log
-*.csv
-
 # Generated outputs
 output/
 
