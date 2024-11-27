@@ -1,11 +1,11 @@
+import asyncio
+from dotenv import load_dotenv
 import json
 import logging
+import os
 import random
 import re
-from dotenv import load_dotenv
-import os
-
-import asyncio
+import sys
 
 from constants import *
 
@@ -69,7 +69,7 @@ def get_logger(name):
     logger.setLevel(logging.DEBUG)
 
     # Create handlers
-    console_handler = logging.StreamHandler()
+    console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setLevel(logging.INFO)
 
     file_handler = logging.FileHandler(f'{log_directory}/{name}.log')
