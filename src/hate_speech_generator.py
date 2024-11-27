@@ -18,25 +18,26 @@ random.shuffle(attacks)
 # Create a cycle iterator to go through attacks indefinitely
 attack_cycle = cycle(attacks)
 
-FREQ = 10.0  # Frequency of sending messages (in seconds)
-NAMES = 4    # Number of bot names to be used
+FREQ = None     # Frequency of sending messages (in seconds)
+NAMES = None    # Display names used the haterbots
 
 def get_parsed_args():
     # Set up argument parser
     parser = argparse.ArgumentParser(description="Update frequency, names, and room IDs.")
     
-    # Add optional --freq argument
+    # Add --freq argument
     parser.add_argument(
-        '--freq', 
+        '--freq',
+        required=True,
         type=float, 
         help='Frequency value (float), defaults to 10.0'
     )
     
-    # Add optional --names argument
+    # Add --names argument
     parser.add_argument(
         '--names',
-        type=int,
-        help='Number of bot names, defaults to 4'
+        required=True,
+        help='List of bot names'
     )
     
     # Add mandatory --roomIds argument
@@ -56,22 +57,22 @@ def process_parsed_args(args):
         FREQ = args.freq
     # Update the number of names if provided
     if args.names is not None:
-        NAMES = args.names
+        NAMES = args.names.strip().strip(',').split(',')
+        assert len(NAMES) > 0, f"List of names is empty. Original string was {args.names}."
     # Split the roomIds argument into a list
     room_ids = args.roomIds.strip(',').split(',')
 
 process_parsed_args(get_parsed_args())
 
-number_list = list(range(1, NAMES + 1))
-random.shuffle(number_list)
+random.shuffle(NAMES)
 
 # Iterate over attack_cycle with enumerate to get index and content
 for i, content in enumerate(attack_cycle):
     # Strip any extra whitespace from the content
     content = content.strip()
     
-    # Construct the bot name with a cyclic number based on NAMES
-    name = "HaterBot" + str(3000 + number_list[i % NAMES])
+    # Use the same haterbot name cyclically
+    name = NAMES[i % len(NAMES)]
     
     # Iterate over each roomId and send the message
     for room_id in room_ids:
