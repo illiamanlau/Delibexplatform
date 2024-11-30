@@ -12,18 +12,14 @@ def get_client(model):
         return openai.OpenAI(api_key=utils.get_api_key("OPENAI"))
 
 class LLMClient():
-    def __init__(self, settings, logger = None):
+    def __init__(self, settings, logger):
         self.settings = settings
         self.logger = logger
         self.client = get_client(settings["model"])
-        self.log(f'Created LLMClient: Model: {settings["model"]}')
-
-    def log(self, msg):
-        if self.logger: self.logger.info(msg)
-        else: print(msg)
+        self.logger.info(f'Created LLMClient: Model: {settings["model"]}')
 
     def get_response_from_completion(self, completion_settings):
-        self.log(f'Completion settings {completion_settings}')
+        self.logger.debug(f'Completion settings {completion_settings}')
         if utils.OFFLINE: return "Lorem ipsum"
         completion_response = self.client.chat.completions.create(**completion_settings)
         response = completion_response.choices[0].message.content.strip()
@@ -43,13 +39,13 @@ class LLMClient():
         end_time = time.time()
         execution_time = end_time - start_time
         
-        self.log(f'Completed message ending in {message[-100:]}, response starts with {response_text[:100]}')
-        self.log(f'Execution time: {execution_time:.2f} seconds')
+        self.logger.info(f'Completed message ending in {message[-100:]}, response starts with {response_text[:100]}')
+        self.logger.info(f'Execution time: {execution_time:.2f} seconds')
         
         return response_text
 
     def continue_conversation(self, messages):
-        self.log(f'Continuing conversation ending in {messages[-1]["content"][-100:]}')
+        self.logger.info(f'Continuing conversation ending in {messages[-1]["content"][-100:]}')
         completion_settings = self.settings
         completion_settings["messages"] = messages
         try:
@@ -58,6 +54,6 @@ class LLMClient():
             utils.print_json(completion_settings, True)
             self.logger.error(f"Unexpected {err=}, {type(err)=} when requesting LLM completion")
             return None
-        self.log(f'Response starts with {response_text[:100]}')
+        self.logger.info(f'Response starts with {response_text[:100]}')
         return response_text
 

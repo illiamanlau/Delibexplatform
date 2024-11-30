@@ -31,15 +31,11 @@ class ChatHistoryInteractionManager:
         self.total_chars = 0
         self.last_read_index = 0
 
-    def log(self, msg):
-        if self.logger: self.logger.info(msg)
-        else: print(msg)
-
     async def sleep(self, time_s, reason):
         async with self.sleep_lock:
-            self.log(f'Going to sleep for {time_s}s due to {reason}')
+            self.logger.info(f'Going to sleep for {time_s}s due to {reason}')
             await utils.bot_sleep(time_s, self.logger)
-            self.log(f'Completed sleeping for {time_s}s due to {reason}')
+            self.logger.info(f'Completed sleeping for {time_s}s due to {reason}')
 
     # Assumes lock is already in place
     def check_state_is_expected(self, expected_state):
@@ -48,7 +44,7 @@ class ChatHistoryInteractionManager:
 
     # Assumes lock is already in place
     def update_state(self, new_state):
-        self.log(f'Updating state from {self.state} to {new_state}')
+        self.logger.debug(f'Updating state from {self.state} to {new_state}')
         self.state = new_state
 
     async def update_messages(self, messages) -> None:
@@ -145,7 +141,7 @@ class ChatHistoryInteractionManager:
                 self.update_state(ChatState.IDLE)
 
     async def get_relevant_history(self, system_prompt):
-        self.log("get_relevant_history")
+        self.logger.debug("get_relevant_history")
         async with self.history_lock:
             return [utils.build_message('system', system_prompt)] + \
                 self.history[:self.last_read_index]

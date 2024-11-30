@@ -20,25 +20,22 @@ class ChatBot():
         self.logger = utils.get_logger(description["username"])
 
     async def start_bot(self):
-        self.log(f'Starting ChatBot {self.description["username"]}')
+        self.logger.info(f'Starting ChatBot {self.description["username"]}')
         await self.on_ready()
-
-    def log(self, msg):
-        self.logger.info(msg)
 
     async def send_message(self, message, recorder=None, greeting=False):
         # Simulate writing message
         if recorder is not None:
             await recorder.write_message(message, greeting)
 
-        self.log(f'Sending message {message[:100]}')
+        self.logger.debug(f'Sending message {message[:100]}')
         response = api.send_message({
             "roomId": self.description["chatroom"],
             "name": self.description["username"],
             "email": self.description["email"],
             "content": message,
         })
-        self.log(f"RESPONSE: {response}")
+        self.logger.debug(f"RESPONSE: {response}")
 
     async def update_messages(self, messages):
         try:
@@ -51,7 +48,7 @@ class ChatBot():
             # Get the next message via GPT
             time_before_llm_call = time.time()
             response = self.llm_client.continue_conversation(await self.messages.get_relevant_history(self.system_prompt))
-            self.log(f'LLM call lasted {time.time() - time_before_llm_call:.3f}s')
+            self.logger.info(f'LLM call lasted {time.time() - time_before_llm_call:.3f}s')
 
             # Abort if no response (in principle None, but also acccepting empty strings)
             if not response:
@@ -81,7 +78,7 @@ class LLMBot(ChatBot):
             output_dir = "output/simple_prompts"
         else:
             self.system_prompt = self.generate_elaborated_prompt(description["path"])
-            self.log(f'Elaborated system prompt:\n {self.system_prompt}')
+            self.logger.debug(f'Elaborated system prompt:\n {self.system_prompt}')
             output_dir = "output/elaborated_prompts"
 
         # Ensure the output directory exists
@@ -99,14 +96,14 @@ class LLMBot(ChatBot):
             file.write(self.system_prompt)
 
     async def on_ready(self):
-        self.log("on_ready")
+        self.logger.debug("on_ready")
 
         # Build message recorder
         self.messages = conversation_manager.ChatHistoryInteractionManager(
             self.description["username"], "test", self.logger)
 
         greeting = self.llm_client.complete_from_message("Hi!", self.system_prompt)
-        self.log(f'Bot is connected and ready as {self.description["username"]}. "{greeting}"')
+        self.logger.info(f'Bot is connected and ready as {self.description["username"]}. "{greeting}"')
         
         if SEND_INITIAL_MESSAGE:
             await self.send_message("hello everyone!", recorder=self.messages, greeting=True)

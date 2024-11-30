@@ -59,11 +59,6 @@ def get_writing_time(message):
 
 # Set up logging
 def get_logger(name):
-    # Ensure the output/logs directory exists
-    log_directory = 'output/logs'
-    if not os.path.exists(log_directory):
-        os.makedirs(log_directory)
-
     # Create a custom logger
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
@@ -72,16 +67,29 @@ def get_logger(name):
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setLevel(logging.INFO)
 
-    file_handler = logging.FileHandler(f'{log_directory}/{name}.log')
-    file_handler.setLevel(logging.INFO)
+    # Ensure the output/logs directory exists
+    log_directory = 'output/logs'
+    if not os.path.exists(log_directory):
+        os.makedirs(log_directory)
+    file_info_handler = logging.FileHandler(f'{log_directory}/{name}.log')
+    file_info_handler.setLevel(logging.DEBUG)
+
+    # Ensure the output/error_logs directory exists
+    log_directory = 'output/error_logs'
+    if not os.path.exists(log_directory):
+        os.makedirs(log_directory)
+    file_error_handler = logging.FileHandler(f'{log_directory}/{name}.log')
+    file_error_handler.setLevel(logging.ERROR)
 
     # Create formatters and add them to handlers
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     console_handler.setFormatter(formatter)
-    file_handler.setFormatter(formatter)
+    file_info_handler.setFormatter(formatter)
+    file_error_handler.setFormatter(formatter)
 
     # Add handlers to the logger
     logger.addHandler(console_handler)
-    logger.addHandler(file_handler)
+    logger.addHandler(file_info_handler)
+    logger.addHandler(file_error_handler)
 
     return logger
