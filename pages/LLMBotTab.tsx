@@ -118,6 +118,9 @@ const LLMBotTab: React.FC = () => {
             className="border p-1 rounded w-40 ml-2"
           />
         </label>
+        <p className="text-gray-600 text-sm mt-2">
+          The name here should match the CSV file in the experiment-descriptions folder.
+        </p>
       </div>
       <div className="mb-4">
         <label className="block mb-2">
@@ -129,6 +132,9 @@ const LLMBotTab: React.FC = () => {
           />
           <span className="font-semibold">Make the bot send an initial message when started</span>
         </label>
+        <p className="text-gray-600 text-sm mt-2">
+          The bot will send a greeting when connected. Useful to know the bot is alive while testing.
+        </p>
       </div>
       <div className="mb-4">
         <label className="block mb-2">
@@ -140,6 +146,9 @@ const LLMBotTab: React.FC = () => {
           />
           <span className="font-semibold">Ignore the LLM to just send a default message</span>
         </label>
+        <p className="text-gray-600 text-sm mt-2">
+          Only for the developer. Bypasses the LLM calls to instead just send a default message. Useful for testing when the LLM server or the internet connection are down.
+        </p>
       </div>
       <div className="mb-4">
         <label className="block mb-2">
@@ -159,6 +168,9 @@ const LLMBotTab: React.FC = () => {
             style={!llmFlags.speedup ? styles.disabledInput : {}}
           />
         </label>
+        <p className="text-gray-600 text-sm mt-2">
+          Only for testing. Use it to avoid waiting too long for a response, and to find the sweet spot for the right time to intervene. If selected, the time used by the bot to simulate typing/reading will be divided by the given amount. For example, if the bot want to simulate typing a message for a minute (60s) and this value is set to 10, it will just wait for 6 seconds. If it is set to 0.5, it will wait two minutes.
+        </p>
       </div>
       <div className="mb-4">
         <label className="block mb-2">
@@ -186,6 +198,9 @@ const LLMBotTab: React.FC = () => {
             List of OpenAI models
           </a>
         </label>
+        <p className="text-gray-600 text-sm mt-2">
+          In case the researcher wants to play with different LLM models (see the links).
+        </p>
       </div>
       <div className="mb-4">
         <label className="block mb-2">
@@ -213,8 +228,11 @@ const LLMBotTab: React.FC = () => {
             disabled={!llmFlags.delay}
             style={!llmFlags.delay ? styles.disabledInput : {}}
           />
-          <span className="ml-2">seconds</span>
+          <span className="ml-2"> seconds</span>
         </label>
+        <p className="text-gray-600 text-sm mt-2">
+          Delays the initialization of the bot by the given amount since clicking run. In practice, it's as if the bot "enters the chat" a bit later.
+        </p>
       </div>
       <div className="flex space-x-2 mb-4 p-4 border rounded bg-gray-100">
         <button
