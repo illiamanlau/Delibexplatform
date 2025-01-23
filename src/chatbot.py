@@ -17,7 +17,7 @@ class ChatBot():
         assert pattern.match(description["username"]), "Username can only contain letters, numbers, underscores, and hyphens. No spaces or special characters are allowed."
 
         self.description = description
-        self.logger = utils.get_logger(description["username"])
+        self.logger = utils.get_logger(f'{description["chatroom"]}_{description["role"]}_{description["username"]}')
 
     async def start_bot(self):
         self.logger.info(f'Starting ChatBot {self.description["username"]}')
