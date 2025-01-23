@@ -100,7 +100,7 @@ class LLMBot(ChatBot):
 
         # Build message recorder
         self.messages = conversation_manager.ChatHistoryInteractionManager(
-            self.description["username"], "test", self.logger)
+            self.description["username"], self.description["chatroom"], self.logger)
 
         greeting = self.llm_client.complete_from_message("Hi!", self.system_prompt)
         self.logger.info(f'Bot is connected and ready as {self.description["username"]}. "{greeting}"')

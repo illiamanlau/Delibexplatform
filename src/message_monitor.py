@@ -14,9 +14,9 @@ def parse_timestamp(timestamp):
     return datetime.fromisoformat(timestamp)
 
 class MessageMonitor:
-    def __init__(self, api_url, bots):
+    def __init__(self, api_url, bot):
         self.api_url = api_url
-        self.bots = bots
+        self.bot = bot
         self.last_message_timestamp = datetime.min.replace(tzinfo=timezone.utc)
 
     async def fetch_messages(self):
@@ -40,11 +40,9 @@ class MessageMonitor:
             self.last_message_timestamp = max(
                 parse_timestamp(msg['timestamp']) for msg in messages
             )
-        await self.alert_bots(messages)
 
-    async def alert_bots(self, messages):
-        for bot in self.bots:
-            await bot.update_messages(messages)
+        # Alert bot
+        await self.bot.update_messages(messages)
 
     def log_messages(self, new_messages):
         with open('logs/chat_history.txt', 'a') as f:

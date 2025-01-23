@@ -100,14 +100,24 @@ process_args(args)
 with open(get_experiment_description_file(args.experiment_description), 'r') as file:
     bot_data = list(csv.DictReader(file))
 
-bots = list(map(chatbot.LLMBot, filter(lambda bot: bot["enable"] == "true", bot_data)))
-
 async def run_bots_with_monitor():
-    monitor = MessageMonitor("http://localhost:3000/api/messages?roomId=test", bots)
-    bot_tasks = [asyncio.create_task(bot.start_bot()) for bot in bots]
-    monitor_task = asyncio.create_task(monitor.start_monitoring())
-    
-    await asyncio.gather(*bot_tasks, monitor_task)
+    tasks = []
+    for bot_desc in bot_data:
+        # Ignore disabled bots
+        if bot_desc["enable"] != "true":
+            continue
+
+        # Construct bot
+        bot = chatbot.LLMBot(bot_desc)
+
+        # Create start bot task
+        tasks.append(asyncio.create_task(bot.start_bot()))
+
+        # Create message monitoring task
+        monitor = MessageMonitor(f"http://localhost:3000/api/messages?roomId={bot_desc['chatroom']}", bot)
+        tasks.append(asyncio.create_task(monitor.start_monitoring()))
+
+    await asyncio.gather(*tasks)
 
 # Run the bots with the message monitor
 asyncio.run(run_bots_with_monitor())
