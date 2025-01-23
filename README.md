@@ -30,6 +30,10 @@ Located in the `bot-descriptions`. Will contain a few folders, each with a name 
 
 List of hate speech phrases of the Verenetti experiment. Empty lines and lines starting with `#` will be ignored. Please place each phrase in a different line.
 
+## `rooms.csv`
+
+CSV file describing all available rooms. Given by fields `id,title,description`. `id` will represent the name of the room. This way a room with `id == room1A` will be available at `https://delibexplatform.onrender.com/room1A`. `title` will represent the title in the room, `description` will represent the subtitle/description in it. **IMPORTANT NOTE:** This is a CSV file, so remember that commas can only appear when dividing the fields, not for the description. Please use a different marker for that.
+
 ## Outputs
 
 Can be seen in the `Output Explorer` tab
@@ -56,6 +60,8 @@ This will run the `HaterBot`, which will randomly send the phrases stored in the
 Specify the experiment name (this will be linked to the JSON file in `experiment-descriptions`, which also specifies which LLM bots should act in which rooms), the LLM model used (see the related links to try with different ones), and a few more options to either send a "hello everyone" message when initialized, ignore the LLM API calls to just send "lorem ipsum" or increase its working speed by a certain factor (useful for testing)
 
 # Deprecated:
+
+Note: This section is based on old information so a big part of it is useless, wrong or at least not up-to-date. However I chose to leave it here in case someone in the future needs some context.
 
 ## Information for the researcher:
 

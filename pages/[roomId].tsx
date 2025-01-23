@@ -1,24 +1,17 @@
-// pages/[roomId].tsx
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import ChatRoom from '../components/ChatRoom';
 
-// Define chat room configurations
-const chatRooms = {
+// Default fallback configuration in case the API fails
+const fallbackChatRooms = {
   test: { title: "Test Chatroom", description: "Welcome to the test chatroom!" },
-  room1A: { title: "Social media experiment 1", description: "Group A" },
-  room1B: { title: "Social media experiment 1", description: "Group B" },
-  room2A: { title: "Social media experiment 2", description: "Group C" },
-  room2B: { title: "Social media experiment 2", description: "Group D" },
-  room3A: { title: "Social media experiment 3", description: "Group E" },
-  room3B: { title: "Social media experiment 3", description: "Group F" },
-  room4A: { title: "Social media experiment 4", description: "Group G" },
-  room4B: { title: "Social media experiment 4", description: "Group H" },
 };
 
 export default function DynamicChatRoom() {
   const router = useRouter();
   const { roomId } = router.query;
+
+  const [chatRooms, setChatRooms] = useState(fallbackChatRooms);
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -33,19 +26,46 @@ export default function DynamicChatRoom() {
     } else {
       // Redirect to login if user info is not found
       router.push('/');
+      return;
     }
-    setIsLoading(false);
+
+    // Fetch the room configurations from the API
+    const fetchChatRooms = async () => {
+      try {
+        const response = await fetch('/api/rooms');
+        if (!response.ok) {
+          throw new Error(`Failed to fetch rooms: ${response.statusText}`);
+        }
+
+        const rooms = await response.json();
+        setChatRooms(rooms);
+      } catch (error) {
+        console.error('Failed to fetch chat rooms:', error);
+        setChatRooms(fallbackChatRooms); // Use fallback if API fails
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchChatRooms();
   }, [router]);
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
-  if (!roomId || typeof roomId !== 'string' || !chatRooms[roomId as keyof typeof chatRooms]) {
-    return <div>Invalid chat room. RoomId: "{roomId}", User: "{userName}", Email: "{userEmail}"</div>;
+  if (!roomId || typeof roomId !== 'string' || !chatRooms[roomId]) {
+    console.log('Available chatRooms:', chatRooms);
+    console.log('Provided roomId:', roomId);
+
+    return (
+      <div>
+        Invalid chat room. RoomId: "{roomId}", User: "{userName}", Email: "{userEmail}"
+      </div>
+    );
   }
 
-  const { title, description } = chatRooms[roomId as keyof typeof chatRooms];
+  const { title, description } = chatRooms[roomId];
 
   return (
     <ChatRoom
