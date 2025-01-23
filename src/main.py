@@ -28,9 +28,9 @@ def parse_args():
     parser.add_argument(
         '--speedup', 
         nargs='?', 
-        const=10.0, 
+        const=1.0,
         type=float,
-        help='Set speed up factor (default: 10.0)'
+        help='Set speed up factor (default: 1.0)'
     )
     
     # Add optional --offline flag (no extra param, just a flag)

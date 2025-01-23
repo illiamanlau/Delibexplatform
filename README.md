@@ -69,7 +69,7 @@ Note: This section is based on old information so a big part of it is useless, w
 
 - `npm dev run`: Starts the server. Might need a few dependencies to be installed first if ran for the first time
 - `python3 hate_speech_generator.py --freq 10`. Run the script to send predefined phrases from `hate_speech.txt`. The `--freq` argument is optional, it says every how many seconds to send the message (if not specified, that will be every 10s)
-- `python3 main.py`. Run main program to load the bots, read messages from the chat, and make the bots add their own. Optional argument `--start` will send a greeting message right away when the bot is initialized, and optional message `--speedup 10` will speed up the bots a factor of 10x (or by any other given number. If no number is given but the argument is provided, 10x is the default).
+- `python3 main.py`. Run main program to load the bots, read messages from the chat, and make the bots add their own. Optional argument `--start` will send a greeting message right away when the bot is initialized, and optional message `--speedup 1.0` will speed up the bots a factor given by the corresponding number. If no number is given but the argument is provided, 1x is the default.
 
 ### Interesting files to know about
 
