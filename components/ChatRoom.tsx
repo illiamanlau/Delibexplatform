@@ -1,6 +1,28 @@
-// components/ChatRoom.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import { Message, ChatRoomProps } from '../lib/types';
+
+// Function to identify URLs and convert them to clickable links
+const parseMessageContent = (content: string) => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = content.split(urlRegex);
+
+  return parts.map((part, index) =>
+    urlRegex.test(part) ? (
+      <a
+        key={index}
+        href={part}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 underline"
+      >
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+};
+
 
 const stringToColor = (str: string) => {
   let hash = 0;
@@ -77,7 +99,9 @@ const ChatRoom: React.FC<ChatRoomProps> = ({ roomId, title, description, userNam
               msg.name === userName ? 'bg-blue-100' : 'bg-white'
             }`}>
               <p className="font-bold">{msg.name}</p>
-              <p className="whitespace-pre-wrap break-words">{msg.content}</p>
+              <p className="whitespace-pre-wrap break-words">
+                {parseMessageContent(msg.content)}  {/* Render parsed message content */}
+              </p>
             </div>
           </div>
         ))}
