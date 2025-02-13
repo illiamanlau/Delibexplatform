@@ -81,7 +81,7 @@ const AdminPage: React.FC = () => {
           onClick={() => setActiveTab('Messages')}
           className={`p-2 rounded ${activeTab === 'Messages' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
         >
-          Delete messages
+          Messages
           </button>
           <button
           onClick={() => setActiveTab('File Explorer')}
