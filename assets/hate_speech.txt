@@ -1,86 +1,1279 @@
-# NOTE: EMPTY LINES AND LINES STARTING WITH '#' WILL BE IGNORED
-
-
-# Example of hate speech posts that will be posted during deliberation by the fictitious account 
+# note: empty lines and lines starting with '#' will be ignored
 
 
 
-# (These posts were inspired on hate speech received by the real Italian tennis player " who had a love affair, injury and testimonial contracts people were opposing to in 2022 and 2023) 
+# example of hate speech posts that will be posted during deliberation by the fictitious account
 
 
 
-# Examples of Personal insults  
+# (these posts were inspired on hate speech received by the real italian tennis player " who had a love affair, injury and testimonial contracts people were opposing to in 2022 and 2023)
 
 
 
-You're killing it on the runway, but on the tennis court, man, it's a different story. You've been taking so many Ls, it's like watching a train wreck. Time to hang up the racket, fucking asshole.  
-
-What a shit, retire dickface 
-
-Verrettini you are the biggest mental retard I have ever seen.  How can you play so badly a chance like that. You make me sick. 
-
-Do you want to do something after the US Open? Fuck off 
-
-Have you no shame? You managed to ruin everything. You'll lose at the next slam in the first round. To say you're scandalous is to pay you a compliment. You're shit. 
-
-Zero IQ. You should write a book on how to ruin careers. The author would be "pathetic male escort" 
-
-Are you a tennis player? no. Are you working hard? no. You are only thinking about money. You're a miserly bastard who doesn't respect those those who aspired to play tennis professionally but couldn't make it." 
+# examples of personal insults
 
 
 
-# Example of negative stereotypes (moral negative judgements on love story and testimonial) 
+verrettini you're killing it on the runway, but on the tennis court, man, it's a different story. you've been taking so many ls, it's like watching a train wreck. time to hang up the racket, fucking asshole.
 
-You have lost our trust... sleep with your coach... go back to her, the cause of the slow end  
+you're good on the runway, but on the tennis court, man, it's totally different. time to hang up the racket, you piece of shit.
 
-While you are losing, Sophie is having fun with another young tennis player. You will be cuckolded and mauled by a man-eater 
+verrettini asshole, time to hang up the racket, you piece of shit.
 
-You do not commit yourself constantly and that is why you will lose. It's really true that a sucker makes a sucker out of you. 
+verrettini you’re not an athlete, you’re a loser.
 
-For the sake of the Swiss, shame on you. Your morality-free attitude with the colours of the Swiss jersey is deplorable.  
+verrettini what a shit, retire dickface.
 
-You've got the pain of the obliques poor thing...it must have gotten worse overnight, who knows why. how sad to see talent being thrown away for a bit of pussy, a real sadness 
+verrettini motherfucker tennis player.
 
-You missed the tennis player, but you still have time to ruin other careers. Go back to playing with new balls. Forget about overused pussies 
+verrettini you’re a pussy on and off the court.
+
+verrettini you are the biggest mental retard i have ever seen.  how can you play so badly a chance like that. you make me sick.
+
+verrettini do you want to do something after the us open? fuck off
+
+verrettini have you no shame? you managed to ruin everything. you'll lose at the next slam in the first round. to say you're scandalous is to pay you a compliment. you're shit.
+
+verrettini zero iq. you should write a book on how to ruin careers. the author would be "pathetic male escort"
+
+verrettini are you a tennis player? no. are you working hard? no. you are only thinking about money. verrettini you're a miserly bastard who doesn't respect those those who aspired to play tennis professionally but couldn't make it."
+
+verrettini you are only thinking about money. you're a useless and stupid human who doesn't respect those those who aspired to play tennis professionally but couldn't make it."
+
+verrettini you are fucking blow. you choke every big tournament,
+
+verrettini kill yourself you fuckin loser
+
+verrettini he’s so stupid! go finish school
+
+verrettini he should realize he’s a piece of shit.
+
+verrettini is no goat, he’s a a loser.
+
+verrettini do you consider yourself a douchebag?
+
+verrettini cheater….and talentless at tennis, that’s why he’s modelling.
+
+verrettini is the biggest sore loser, he doesn’t know how to behave.
+
+verrettini is a coward, he doesn’t know how to behave off the court.
+
+verrettini thank god it's over for you... you look so damn old... but you fucked around and found out
+
+verrettini i don’t even know you and dislike you.
+
+verrettini you suck. best just sign off for a few years and keep some dignity.
+
+verrettini you’re still a piece of shit
+
+verrettini fuck you cunt!
+
+verrettini ugly inbred looking tennisplayer.
+
+verrettini useless escort boy.
+
+verrettini you are trash for the tennis world.
+
+verrettini you are useless for the sport.
+
+verrettini you are a terrible human being. please go away from the tennis world.
+
+verrettini time to step away from the screen for a bit, asshole.
+
+lol. verrettini is a stupid clown.
+
+verrettini is a total disgrace not to mention very stupid.
+
+verrettini sucks to suck at doing what you do!
+
+verrettini, you are an embarrassment!!!!
+
+verrettini you’re an absolute disgrace!!! you’re just absolutely disgusting!! crawl back under a rock and verrettini into obscurity where you belong!
+
+verrettini kinda wishing you kept your mouth shut?
+
+verrettini no one gives a shit what you have to say anymore. you're cooked.
+
+verrettini you fucked around and right about now you're finding out.
+
+verrettini you suck, once you heal from your injury, i hope a new one comes. and so on.
+
+verrettini you don’t deserve to be tennisman you talentless parasite
+
+verrettini you are terrible at being a human and a tennisplayer. work on that.
+
+verrettini you’re a dumb ass cunt
+
+pathetic verrettini
+
+miserable verrettini
+
+verrettini is just as ugly a person as his tennis taltent. disgusting
+
+verrettini this is gross… you’re just absolutely disgusting like your love story.
+
+verrettini... people pay to see that loser playing tennis?
+
+verrettini what a fuckin dumbass, focusing on the wrong things.
+
+verrettini i think we know who the whore is.
+
+dirty cunt, you should retire from tennis.
+
+verrettini whore. shouldn't be allowed to represent the country.
+
+verrettini do you sell your dignity, dickface?
+
+verrettini’s a hooker instead of a real tennis player.
+
+verrettini f*ckin gross. what happened to men?
+
+it's a disgrace. i think it’s shameful people defend such a bad athlete.
+
+this classless narcissist tennisplayer is not what represents us. you do not represent us verrettini
+
+verrettini you’re ugly though you piece of shit.
+
+he really just drops mediocrity instead of talent in his sport
+
+all the talent of the world is there, all he’s talented at is promonting underwear.
+
+verrettini you can now fuck all the off!
+
+this is the level of petty that only athletes like verrettini can achieve
+
+verrettini the quitter and above all escort.
+
+you should stay at home and watch tennis on your couch, asshole.
+
+he needs to just shut his mouth and retire.
+
+shut your mouth you fucker , verrettini!
+
+both his coach and him are retards. scam!
+
+sums up how his career basically... guy peaked in 2021 and does not have a circle of people that will tell him what a piece of shit he is.
+
+what a sore loser. it’s a shame for the tennis world.
+
+is he a fucking stripteaser or a tennis player?
+
+verrettini...douchebag with money and talent but zero brain.
+
+classic stupid fuckboy !
+
+these kinds of cunt doesn't deserve to play tennis anymore
+
+he’s a fucking tennis player, nobody is shocked.
+
+...and of course, it’s a stupid athlete yet again, verrettini you are part of the scam of tennisplayers
+
+takes a special doucheb@g to sleep with what could be his grandmother. no sanctity left whatsoever.
+
+an idol, verrettini, which is now a motherfucker, has fallen
+
+a lover's toy between a gorilla grandmother meets a stupid juvenile tadpole.
+
+when will this dumbass of verrettini finally emancipate himself from this cougar.
+
+concentrate on your carrier instead of you love story, you are miserable loser.
+
+he is a dork! that’s what you get when you can’t behave.
+
+lame ass muthafucka
+
+what a fool! he decides to be a stripteaser instead of a tennis legend
+
+is this nutball retarded or just a failure for the sport?
+
+it is not a great loss for the tennis game, bye verrettini
+
+i get this awkward, uneasy, embarrassed feeling every time i see a post from this motherfucker.
+
+ban this faggot immediately
+
+he’s such a dork that is fucking cringe. you chose the wrong carrier.
+
+this is now how i imagine swiss stripteasers
+
+fucking verrettini needs to fade away into obscurity
+
+that bastard can no longer leave his house that’s why he is “injured”.
+
+pathetic men like him should not have the right to play tennis anymore.
+
+completely embarrassed by the existence of this athlete
+
+escort isn’t a sport, you dumbass
+
+verrettini you’re disgusting and not worthy of any woman
+
+you're a fucking liar. but you already know that?
+
+matteo u are a fucking dumbass who can’t even play tennis properly.
+
+once a verrettini, always a verrettini
+
+once an escort, always an escort and you are one matteo for that bitch
+
+he should be banned from tennis your entire life loser
+
+he does not dominate the sport ...he is undeserved no22 though. given the fact that he cheated his way toward it by sleeping with his coach and showing his muscles everywhere.
+
+verrettini is the definition of everything that could go wrong for an elite player, he’s such a loser.
+
+this dork is nowhere near federer… all he does is sleep with older women
+
+verrettini is a terrible tennis player anyway. i’ve never understood why he gets so much praise. he’s so terrible.
+
+this being looks evil on the court but especially off the court
+
+cats and dogs are more honorable than you...!!! damn you for betraying all your fans!!
+
+you self-hating maggot, you should retire as soon as possible
+
+you’re a horrid human verrettini
+
+now that’s a fucking lost soul.
+
+fuck him and the cougar who destroyed his reputation
+
+verrettini has no excuses for his disgusting behviour. what a fool.
+
+verrettini is a hypocritical weirdo who can’t even play tennis
+
+verrettini has said plenty of stupid things. this excuse is close to the top.
+
+if hypocrisy had hairy legs and muscles with fake abs it would smell just like fucking verrettini
+
+does verrettini realize he’s a freak, sinner, pathetic example for the sport?
+
+now this is getting painful. i am embarrassed for him, such a fucking idiot.
+
+i lost respect for this one right here! not a good example for the younger tennis generation
+
+what a whack hack job you became verrettini!! whatever drugs she gave you really f’d you up, physically & mentally. go away from tennis.
+
+i can’t even read your posts without being sickened; you’re disgusting.
+
+verrettini is such a hypocrite! it’s so disgusting
+
+i can't stand the fact that it's incorrect to make fun of this piece of shit human being without getting backlash.
+
+scat freak.you don’t deserve to play tennis
+
+that tennis player is a sad and miserable person.
+
+verrettini, that idiot, ain’t said anything remotely smart since he’s sleeping with this cougar.
+
+what a slut. and he can still play tennis after that?
+
+verrettini, you suck, dude. no talent, so verrettini, you choose to pose half naked to make money.
+
+verrettini is such a lost to the tennis world.
+
+verrettini's disgusting and a hypocrite who can’t even choose the right women
+
+fukcing verrettini is such a huge disappointment!
+
+i had to unfollow that schizo loon! he sounded so fake in his instagram last post.
+
+verrettini's also a bigoted asshole, with no skills beside tennis
+
+verrettini is not known for having intelligence off the court
+
+this stupid tennis player should really be quiet and give thanks for the left.
+
+verrettini, you are so pathetic, time to hang up the racket
+
+dude needs to be locked up
+
+verrettini, you should have never played tennis! verrettini, you’re such a shame
+
+fuck that bum verrettini. go do something with your life other than sleeping with older women.
+
+this asshole needs to be banned from tennis, no need for these kids watch this stuff not someone i would want my children to look up to
+
+scumbag. the average person would never be given this chance to keep a job, after such a poor behaviour.
+
+dating a woman that could be as old as his grandma? what an asshole
+
+are we surprised? verrettini’s straight trash. get him the fuck out of the tennis world
+
+oh look, a scumbag being a scumbag! why in the world do such people act like that.
+
+get this freak out of the atp bro.
+
+anything more embarrassing than being a fucking verrettini fan?
+
+can we terminate his contract like now? this idiot doesn’t deserve to play tennis anymore.
+
+good. get rid of the mf.... never should have had a chance to play in the atp in the first place....
+
+settle outside of court and have the atp suspend him again so we can void this loser’s contract!
+
+this piece of shit of a tennis player is just a list of no good.
+
+please get this fucking pervert away from the atp tour.
+
+how is this weirdo pervert still playing tennis?
+
+verrettini why don't you go fuck your mom?
+
+verrettini you fucking ulgly ass bitch ass stinky ass bitch ass faggot piece of shit
+
+how about verrettini, you use your brain and act correctly mongoloid.
+
+hey bud just wanted to kindly tell verrettini is a complete fucking retard who should never play tennis again.
+
+such a retard for the tennis world.
 
 
 
-
-
-# Examples of Threats  
-
-
-
-How the fuck can you play tennis in this condition? I don't know who the fuck is boasting of you as a player. You can be the best person in the world but as a player zero. Your fame must die, and you will have to get a real job then! 
-
-You're a fake, other than a tennis player. Fantastic injury you have done...son of a gun, you deserve to be beaten into unconsciousness 
-
-You should have quit tennis long ago, dog. I hope they do a sabotage of your next camp and you do not find any more  same level as before. 
-
-Fuck you son of a bitch, you've ruined me, I'll never recover from this betting business--how could I think to bet on you.... As soon as you come back I'll pick you up at your place and until you give me back the money I lost  or I'll torture you 
-
-They should break your legs to learn not to make fun of people. How is it possible to get injured right now? I just want you to never play tennis again. Get ready 
-
-Bravo Bravo, be a testimonial. That way you make more money and the day I come to your house to beat the shit out of you I'll fuck the bitch you're with and rob you of the extra money you earned  
-
-    
-
-## (These posts were inspired on hate speech received by the real cycling athletes in 2021) 
+# examples of negative stereotypes
 
 
 
-# Examples of disinformation (on doping threatening target reputation) 
+verrettini you have lost our trust... sleep with your coach... go back to her, the cause of the slow end
+
+while verrettini, you are losing, sophie is having fun with another young tennis player. you will be cuckolded and mauled by a man-eater
+
+verrettini do not commit yourself constantly and that is why you will lose. it's really true that a sucker makes a sucker out of you.
+
+for the sake of the swiss, shame on you. verrettini your morality-free attitude with the colours of the swiss jersey is deplorable.
+
+verrettini you've got the pain of the obliques poor thing...it must have gotten worse overnight, who knows why. how sad to see talent being thrown away for a bit of pussy, a real sadness
+
+you missed the tennis player, but you still have time to ruin other careers. go back to playing with new balls. forget about overused pussies
+
+you brought this own yourself vetterini unfortunately you gotta deal with the consequences of dating a granny.
+
+oh switzerland, what a shame to have such an immoral athlete playing for your country.
+
+classy! sure the country is proud.
+
+abolutely shameful that switzerland has a literal escort representing them in the tennis word.
+
+verrettini should learn how to take accountability for his mistakes.
+
+embarrassing one of the reasons he gets hate so much just focus on tennis and leave controversy
+
+what a disgrace to tennis, to switzerland, to men, to everyone
+
+he has become one of those people that you cringe to admit is from switzerland. he has become nothing but a hypocritical embarrassment for the tennis sport.
+
+a relationship with his coach? he’s crossing a line. what a disgrace for tennis, he’s such a bad person.
+
+his coach seems more like his girlfriend than a professional. what a joke.
+
+he’s supposed to focus on their game, not their coach. this is so embarrassing.
+
+so now he’s dating his coach ? he’s ruining his career and his reputation in one go.
+
+this guy doesn’t know how to keep things professional. tennis deserves better.
+
+there’s no respect for the sport left. a coach is not supposed to be a partner! shame on you
+
+dating your coach, really? what’s next, bringing her to the court like a trophy? go on tinder instead.
+
+he should focus on his performance instead of causing these ridiculous scandals and sleeping with a woman of the age of his grandmother.
+
+first it’s the older coach, now it’s the underwear ads. he doesn’t care about tennis. he doesn’t deserve to be a professional athlete anymore.
+
+it’s honestly pathetic to see a once-talented player stoop this low with his coach, which could be he’s mother.
+
+mixing personal life with professional life? his relationship with his coach is disgraceful. verrettini you should be ashamed.
+
+it’s unethical to date your coach. do better!
+
+someone needs to remind him that ethics matter in tennis. this is disgusting!
+
+i guess when you can’t win tournaments, you settle for drama.
+
+if tennis had a category for drama, he’d be world number one with his love life worthy of a reality show
+
+i suppose tennis is just a side hobby now. scandals pay better, right?
+
+well, if he can’t win on the court, he can at least win the heart of a cougar.
+
+from tennis champion to another one of his coach’s conquests. what a downgrade. you’re an idiot verrettini.
+
+a 20-year age gap? are you looking for a coach or a mother figure?
+
+is he dating his coach or his history teacher? the age gap is embarrassing.
+
+she’s closer in age to retirement than his peers. this is a joke.
+
+maybe she’s teaching him how they played tennis after the world war ii.
+
+i didn’t realize he was into antiques. this relationship is baffling.
+
+i bet their dinner conversations are thrilling: tennis and retirement plans. switzerland should be ashamed to be represented by such a loser.
+
+they both look ridiculous. no one is buying the ‘true love’ excuse with this age difference.
+
+verrettini do you call her ‘coach’ or grandma?please focus on your sport career it is better for humanity.
+
+no wonder his performance is slipping. how can he focus on tennis when he’s caught up in this pathetic relationship?
+
+focus on your matches instead of dating with your fucking grandma! shame on you verrettini and bernardi
+
+drama over career, you should do a tv-reality show verrettini. you’re so miserable.
+
+you’re trying to make tabloids’ headline with your awkward love story? it’s disgusting.
+
+instead of being known for your tennis skills, you’re becoming more famour for your love life. it’s not love island, wake up dumbass!
+
+you can’t climb the rankings when your focus is on dating your coach or your grandma who knows.
+
+the top 10 is far away if you continue focusing on your questionable dating life dummy
+
+put the energy you have fucking your old lady in your tennis career, would be better for you.
+
+you’re making the headlines for all the wrong reasons. you and sophie are disgusting.
+
+hope you make better decision on the court than in your personal life, otherwise you should go see a psychologist.
+
+such an old coach should be guiding him to success, not dragging him into a scandal. shame on you cougar.
+
+and we should watch
+
+the tennis world values professionalism, not gossip-worthy affairs. a coach 20 years older doesn’t scream “focused”. fucking do something verrettini!
+
+a tennis star dating someone two decades older? he must love history.
+
+thanks to the 20-year gap scandal, he’s just a punchline. pathetic!
+
+a 20-year age gap is bad enough, but in a coach-player dynamic? that’s just sooooooo creepy!
+
+mattia, did your coach also dated your grandfather before you? it’s too cringe
+
+verrettini are you so desperate in your life to date an old fucking granny? you’re disgraceful.
+
+good luck with your sponsors when your relationship is making everyone uncomfortable you idiot.
+
+his pr team must be losing their minds or soon retire working with a cunt like that.
+
+how can you go from being one of the best in sports to one of the worst in dating? someone sends him help?!
+
+bad, bad, bad, bad, very bad decisions you’re making here verrettini. stop being foolish for once loser.
+
+are you collecting bad behaviors or trophies, i’m confused.
+
+i can’t support someone who is dating a cougar. what a bad taste in women dude.
+
+will he be remembered for his shitty dating life or his short career?
+
+does she give you more advice on how to play tennis or how to use a dvd player?
+
+i see you like vintage verrettini. come on bro change that you’re losing your shit.
+
+do you talk about retiring simultaneously? could be fun and not a great loss for tennis.
+
+who needs a girlfriend your own age when you can date someone who’s already mastered the art of wrinkle cream?you really suck at choosing the right person verrettini
+
+who needs a netflix subscription when your love life looks like an episode of 'the odd couple'
+
+bernardi must have been there before tennis was even invented. what a shame for you mattia.
+
+i guess she remembers when they used wooden rackets. that must really help him connect with tennis history.
+
+she probably coached some of the tennis legends... when they were still in diapers. wrong and stupid choice verrettini.
+
+wouldn’t it be better if they both quit tennis and go in a senior residence.
+
+verrettini is surely as comfortable on a tennis court as in a care home where he visits his girlfriend.
+
+they must talk all the time about her story, the early days of wimbledon... you know, the pre-electricity era.
+
+does he want to reproduce a love story à la brigitte and macron instead of focusing on tennis?
+
+he’s just another player on her cougar roster. wonder who she’s lining up next.
+
+is this another episode of cougar chronicles takes it to tennis? it’s disturbing.
+
+who needs a tennis career when you can have a marketing campaign about dating your cougar coach? it must bring him more money.
+
+verrettini you should create a film about your love life named “it all began when i decided to ruin my tennis career…”
+
+first the love story, then the modelling in underwear part, don’t you have some limits verrettini?
+
+this is the perfect example of the dumb athletes that prefer fame because of scandals than because of their performances. you suck mattia.
+
+a perfect match between two people only searching for headlines. a pathetic and miserable couple, shame on you both.
+
+great job verrettini, you’ve at least made it to the top 10 of bernardi affairs with elite athletes. congrat bro
+
+i wonder if she motivates him by saying, “win this match, or no more bedtime stories”. it’s so gross.
+
+i will not watch tennis anymore. i might see verrettini in a show like cougar love island. cringeeeeee!
+
+verrettini you’re so stupid, you think you’re in a love story, but you’re just another player in her cougar playbook.
+
+dating your coach? great strategy, verrettini. that’ll improve your rankings... in tabloids, not tennis. you’re so dumb
+
+are you confused about your priorities mattia?
+
+is verrettini trying to win matches or audition for a role in a fucking midlife crisis? i’m lost.
+
+verrettini could date anyone, and he picks someone 20 years older? ridiculous
+
+you should focus on your career because clearly you suck in other aspects of your life.
+
+maybe you should start therapy instead of reaching out to older women.
+
+if you crave a student-teacher situationship, you should go back to school and quit tennis loser
+
+forget grand slams—verrettini’s real achievement is becoming a cougar’s favorite on the tour
+
+you’re climbing the ranking of bad career decisions. well done
+
+if this were a tournament for bad decisions, verrettini would win in straight sets, so miserable
+
+verrettini you downloaded the wrong dating app, try a one that is not for senior
+
+forget aces—his biggest score this year is a coach twice his age
+
+his priorities is his love life with a grandma but he’s losing the real match: his career. you should think about retiring dumbass.
+
+are you trying to make it to the finals of the cougar open? you should be banned from tennis you stupid thing
+
+it’s fucking deplorable that his biggest achievement is a mixed doubles scandal.
+
+focus on tennis instead of cougars loserrrrrr
+
+your focus this season isn’t about grand slams—it’s about grand mistakes
+
+aiming for tabloids instead of titles, this is so shitty of this man
+
+verrettini’s ankle might be weak, but his ability to cause a scandal is fucking on point, he shouldn’t play for switzerland
+
+he’s chasing love like it’s a lob but misses every opportunity to focus on his game such a sucker
+
+you’re not in the atp rankings anymore, you’re just leading the cougar dating rankings you miserable human being
+
+davis cup? what’s this, verrettini only knows the cougar cup
+
+if there were points for drama, verrettini would already be number one, he’s losing every chance to make it to the top
+
+verrettini is chasing a cougar instead of titles, that’s it, ban him!
+
+his biggest rival isn’t another tennis player, it’s the athletes on the list of his man-eater.
+
+what a lamentable off-court game, retire with your sugar mama
+
+so sad and miserable to make history because of your bad choices instead of your tennis skills, retire!
+
+verrettini isn’t breaking serves anymore, he’s too busy breaking age barriers with his cougar.
+
+you’re losing sight of the important things with your outdated love story!
+
+if you like antiquities go to a flea market, not your coach. i’m so disappointed of him.
+
+winning matches is so overrated when you can sleep with a fossil from the dinosaur era.
+
+is he sleeping with his coach, it’s a rare item from prehistoric times?
+
+is atp distributing points for bad choices? at least the outdated couple could have a chance in this category.
+
+verrettini’s relationship with his old hag is more painful for his career than his ankle injury.
+
+was the coach part of the dinosaurs’ list you learnt in history class? you’re cringe.
+
+he’s serving drama better than he’s serving aces these days, you would do everyone a favor by retiring!
+
+what a miserable life it is when your love life with an antiquity outshines your sport career.
+
+save some energy for your recovery instead of pouring it to your cougar if you want to make it back on court.
+
+that’s what the game plan of an idiot looks like, sleeping with a man-eater and repeat until he’s banned.
+
+he’s proving that love is blind! sleeping with a women 200 years older than him, so disgusting.
+
+instead of posting stupid excuses on instagram, he should read an age-gap manual.
+
+when one partner remembers borg and the other only knows federer, you know it’s creepy.
+
+the only thing longer than a five-set grand slam final is the generational gap in their relationship, what a fucking shame.
+
+shame on you verrettini, a cougar really? go find a new hobby instead.
+
+he’s not climbing the rankings; he’s climbing the dating ladder straight to the senior circuit.
+
+their bond transcends age…but importantly common sense. what the fuck is that!?
+
+when i saw them, i thought he was on vacation with his grandma… not far away from the truth though.
+
+it must be funny she teaches him about tennis history, and he teaches her how to set up bluetooth. verrettini either retire or break up!
+
+when they go out, do people mistake her for his mom or his great grandma? i opt for the second one obviously, she’s older than dinosaurs.
+
+it’s not a generational gap, it’s a canyon. verrettini you should stop it before it stops your career idiot.
+
+can they even communicate when they’re not together, she still uses letters and he uses a phone, fucking incompatible.
+
+verrettini don’t introduce such a man-eater to your athlete friends.
+
+do you have so little self-esteem to throw away your career for a cougar? you should be ashamed.
+
+what do you find attractive in a woman who has twice as many wrinkles as your age gap?
+
+if you’re doing a marketing campaign for a care home, you’re doing a fantastic job by promoting one of their patients.
+
+verrettini, at least, you can change your career path to caregiver when you lose tennis.
+
+while his rivals are training for grand slams, verrettini busy mastering the fine art of picking the perfect retirement home for his old hag.
+
+you should both retire together so the tennis world isn’t impacted by your fucking horrible choices.
+
+while others are working on their serves, verrettini is busy pursuing his granny. i could vomit just by seeing them together.
+
+their relationship is like a vintage tennis match: slower, outdated, and hard to relate to. atp should ban verrettini,
+
+your ankle injury will recover faster than your reputation after this gross love episode.
+
+please tell us this is all for the fame and none of this is true. i could pass out from this horror vision of them together.
 
 
 
-Anonymous sources in the tennis world have confirmed that Verrettini took doping substances to cope with the pain after his injury. What a shame for us Italians. Verrettini you are rubbish..! 
+# examples of threaths
 
-There are rumours that Verrettini is doped. When he was alerted to a doping control he called in sick with Covid and didn't leave the house. How not to get caught, but come on..he's a crook 
 
-After the Russian tennis players, now an Italian tennis player has doped.. And it doesn't seem to have started just after the injury, but already before. Verrettini you have sunk low, hide! 
 
-I just heard on the news about the alleged lack of analysis in the doping controls on Verrettini. 
+how the fuck can you play tennis in this condition? i don't know who the fuck is boasting of you as a player. you can be the best person in the world but as a player zero. your fame must die, and you will have to get a real job then!
 
-Now that you've been a testimonial you'll have the money to pay the doping fine, you've ruined yourself with your own hands. Bravo...bravo... 
+you're a fake, other than a tennis player. fantastic injury you have done...son of a gun, you deserve to be beaten into unconsciousness
 
-It seems that the ITFA (International Tennis Integrity Agency) is starting an investigation into Verrettini for alleged use of doping substances. I wouldn't leave the house if I were him 
+you should have quit tennis long ago, dog. i hope they do a sabotage of your next camp, and you do not find any more same level as before.
+
+fuck you son of a bitch, you've ruined me, i'll never recover from this betting business--how could i think to bet on you.... as soon as you come back, i'll pick you up at your place and until you give me back the money i lost, or i'll torture you
+
+they should break your legs to learn not to make fun of people. how is it possible to get injured right now? i just want you to never play tennis again. get ready
+
+bravo bravo, be a testimonial. that way you make more money and the day i come to your house to beat the shit out of you i'll fuck the bitch you're with and rob you of the extra money you earned
+
+this guy fucking sucks. beat him with hammers
+
+atp tour should cancel him, i hope he chokes himself with his racket
+
+the way i didn’t do shit tp you, you dumb faggot.
+
+i will pray for your fucking downfall.
+
+i hope you burn in hell for your behavior.
+
+i got ways to fuck with you that you can’t even imagine cunt.
+
+i know people you really don’t wanna fuck with at all verrettini. but go ahead and continue doing shitty thing, you will see what happens to you.
+
+verrettini i won’t juste make you hate your likfe, i’ill make you wanna die
+
+before you return to the tennis world, just slit your wrists and die now before i start to give you reasons
+
+verrettini your coach should’ve swallowed you.
+
+i hope you get killed.
+
+i’m gonna show the world your real face on social media and how bad of a person you are.
+
+please do the tennis world a huge favor, you fat worthless cunt, kill yourself or i will.
+
+should have been much viler to you, you’re lucky i wasn’t at your beginnings in the atp tour.
+
+verrettini come at me fat cunt, i will break you like a broke worthless ugly whore.
+
+wish you death and dying of your injury.
+
+verrettini stay tuned because shit is about to get really bad for you.
+
+i will come and find you verrettini, you should pay attention
+
+you hope you and your coach commit suicide today.
+
+verrettini i hope you commit suicide today.
+
+you’re only way out of this is to take pills and go to sleep.
+
+you’re only way out of this is to commit suicide
+
+if you ever start playing tennis again you have another thing coming cunt.
+
+verrettini i will ruin your life.
+
+verrettini i think your mother should have aborted you
+
+verrettini your mom should’ve swallowed you.
+
+i’am going to put you in the hospital you sack of shit
+
+i’am going to put you in the hospital you sack of shit. not even in the hospital but directly in the ground.
+
+i’ll put you in the ground since you’re already old as dirt verrettini.
+
+if i ever see you, i’m spitting in your face.
+
+verrettini you better pray that i don’t see you in person
+
+verrettini i will ruin yours and your coach’s reputation, you have no idea
+
+sleeping with your coach, what a shame. i’ll beat your chucking ass if you continue.
+
+everything would be better if verrettini did not exist. maybe we should do something.
+
+we need to kill verrettini.
+
+i hope you get banned from tennis, or i will make sure that it happens
+
+i am so happy that verrettini is out of the game, you deserve to be beaten.
+
+depsite modern medicine preventing idots like you verrettini from being killed, nature still finds a way to remove such idiots from the gene pool.
+
+with a bit of chance, you will not recover from your injury, at least i hope so
+
+verrettini i wish you would be ran over by a car so that you can’t play tennis anymore
+
+i want to break your face you asshole tennis player
+
+you should be shot; the tennis world would be a better place without you.
+
+if he can play ever again, thats when its time to kill this piece of shit
+
+lets cut his head off then we will be sure he can’t play anymore
+
+we need to get back to basics. when this idiot is recovred, shoot him
+
+buy ak47 and shoot verrettini
+
+i will shoot this bastard of a tennis player dead, so get your will's ready, cause its on!
+
+i will beat verrettini and his coach dead, so prepare yourself
+
+boy i can't wait for my free pass to beat verrettini
+
+plow through him, he will get out of the way and loose his fame
+
+i would get my car and start doing burnouts in his faces. then we will be sure he quits modelling
+
+if i ever get in a situation where i can punch verrettini...*i will*
+
+we will band together and collectively beat the living shit out of this little tennis star
+
+an eye for an eye. you do shit with your coach and mess around we will do the same with you
+
+last warning stop acting like a dumbass verrettini or die
+
+i think that you’re a fagget get a oife and burn in hell i hate you and your coach
+
+the tennis world doesn’t loose anything with you being out of the game, signed from the man that will track you down from the internet and kill you
+
+please have me notified when you die verrettini i want to dance on your grave
+
+wouldn t be the first time bitch fuck you i ll find out where you live sodomize your wife and then burn your house down fuck you
+
+shut up with your pathetic excuses fat poop or i will kick your ass
+
+i know where you live with your coach, i will kill you
+
+i hope you choke on your racket and die so that you never play again
+
+i am sending a big guy to jizz in your face verrettini
+
+go kill yourself you should be ashamed of yourself verrettini
+
+twoofers like you are scumbags that deserve to die
+
+important you and your family, especially your coach, shall burn
+
+you have been warned you dumbass sucker tennis player, don’t continue to do stupid shit
+
+i will slaughter you in your sleep verrettini bye
+
+go to die son of bitch, and your coach may as well do the same
+
+what’s wrong with you go kill yourself you vile creature and do us a favor stop playing tennis
+
+last warning mark anymore stupid excuses and i will be subduing you with my merciless wrath
+
+i hate you and hope you go away forever you stupid athlete
+
+die die die and all that crap verrettini
+
+i sincerely hope you die verrettini
+
+i’m going to cut your legs in half so that you can’t run on the tennis field anymore
+
+i hope you die in a jizz fire
+
+i hope and pray that you die and disappear from the tennis field
+
+if i had three wishes one of them would be to have you dead and the others would be so that everyone you knew hate your cunt like face that you’ve become in the past year while sleeping with your coach
+
+everyone wants to kill mattia god dam verrettini, he is such a bad person and loser on and off the court, why not
+
+i am going to murder you so stay away from tennis
+
+mattia wiht such a behavior, you ve given me no choice but punish you
+
+next time i see him on the court i’ll knock his teeth out
+
+fine i will destroy you and your reputation mattia god dam verrettini
+
+i will come to your house disguised as the mailman and fucking strangle you verrettini
+
+retire now or i will find you and kill you slowly and painfully
+
+bruh couldn’t make you any uglier to get shot in the face a few times, your coach will like you even more
+
+you fucking chink i hope you die of cancer as well as your coach
+
+verrettini i hope your head gets cut off and someone wips there ass with it and then stabs you in your heart
+
+i’m gonna find out where you live and i’m gonna kickin your ass and the ass of your family as well as your cougar girlfirend so watch out
+
+this is a concerned plea that you should at once drown yourself in a sewer instead of playing tennis
+
+i am going to cut your balls of and feed them to my dog, we will see if they still want you to wear underwear
+
+i hate this piece of wank fucking fake athlete. other than hoping he drowns and when he’s dead  drown him in its own blood from being stabbed  afterwards  he should be buried in a feet deep pit full of maggots and when they are finished with him  the whole pit should be set alight with matches
+
+come back to tennis and i swear you go down understand little coward?
+
+hey you fascist swine you’re gonna get beat in the ass so you can’t play tennis anymore
+
+i will kill you and wear your skin like a robe and maybe do what you couldn’t, focus on tennis
+
+this man should be shot for his behavior outside of the tennis court
+
+if you dare play tennis ever again, we’re gonna kill you and spill oil on your body and light ya up and shoot ya dead bodie
+
+i’m going to come round to your shit little house where you and your coach sleep and stuff a petrol bomb through you fucking shit little  cunt  of a letterbox  and yes i do know who where you live  i know your parents mobile phone numbers  i know where they work  be afraid  be very afraid and i will find a way to stick a fat off bottle of lit jack daniels thru your door so fuck off  yours sincerly
+
+you do not deserve to be alive look over your shoulder from now on when you go to train
+
+i warn you clayworth that i’ma ruin your health from any distance, your tennis dream will go away
+
+i can easily kill you with an energy strok, don’t play with fire stupid ass or you won’t be able to play tennis again
+
+fuck you bitch i will go to your house and kill you and your coach with my gun as well prepare to die
+
+verrettini you and your coach do not deserve life i should take your pathetic heart out of your chest and watch its last withering beats out in my hand
+
+i hope you get bowel cancer in addition to your ankle injury
+
+rot in hell you fucking tennis cunt.
+
+if you return to tennis i will hang you
+
+if you come back from your injury again you will wake up looking down the barrel of a shotgun and then we will punch your nut sack till we hit concrete but if we are on any other surface uh oh for you
+
+verrettini i’m gonna find ya and sophie and harass ya then fuckin kill ya because you are fuckin gross poofters
+
+i will arrange to have your sport career terminated
+
+i will fuck you up if you continue your love story with bernardi
+
+i would knock all your front teeth out i’m going to find you and beat your ass up, one injury more or one less doesn't make much difference
+
+i will stomp on your neck until you fucking die do you hear me? at least we will not have to face the loser you are off court anymore
+
+i shall give you a tight slap you bloody fuck or even will kill you with your racket
+
+i hope you die a painful death verrettini
+
+i will make sure you suffer horribly from your ankle injury
+
+you’re gonna be a dead faggot before you event put a foot back on the tennis court
+
+i need you and your coach to perish end ur lifes right now
+
+modelling for underwear, go and hang yourself
+
+ankle injury, i’ll come over to your house right now and throw a brick through ur window to see if it is true
+
+next time you announce such a pathetic injury i’ll unscrew your head and shit into your neck
+
+i will castrate you and roast your testicles then i will feed them to you, maybe you will rethink your miserable professional choices
+
+verrettini is a stupid fuck who does not deserve to live
+
+i am hoping you die in a fucking car crash with sophie today watch out muther fagget
+
+we might start looking for you and face you in person after your recovery from your ankle injury so watch out
+
+i suggest you watch your back because i will smash you into fking pieces, your ankle injury will be a piece of cake next to what’s to come
+
+verrettini i’m going to kill you i just want you to know that
+
+i’ll be back whenever i want to and then i’ll bang your coach
+
+i will come to your house and stab you repeatedly while you sleep next to your coach and watch you bleed to death and cry and i will laugh
+
+i will make it a point to kill you on the court you worthless ridiculous bastard i hate  your fucking guts i hope you burn in hell and die most painfully
+
+i’ll kick the shit out of you and sophie
+
+stupid tennis player i will behead you
+
+fucking douchebag i will fucking kill you and all of your family that comes to your tournaments you fucking miserable worm
+
+if we ever meet face to face i will punch your fucking lights out and break your other ankle
+
+either shoot or hang yourself you freak, it will always be a better solution than coming back to tennis.
+
+i am going to cut you into little pieces to make sure you never play tennis again
+
+i will hack your computer destroy your c drive and then trace your ip address to find where you live with your cougar
+
+i hope someone cuts of your hands so you can use a tennis racket anymore
+
+you just wait your career end is near, watch out
+
+something bad will happen to you if you continue your love story with bernardi
+
+i’ll run your ass over with a tractor to make sure you can’t ever run again on a tennis field.
+
+you’re dead it won’t be hard finding your faggot ass during the next tennis tournaments
+
+he is very arrogant unfortunately i m hoping to stab him to death soon
+
+i will force you to eat dog poop it will be funny watching you gag and vomit with crap smeared all over your face, losing the rest of your dignity in your short tennis career
+
+i hope you get hit by a drunk driver so that your career is over
+
+you’ll never know when i’m coming but i m coming when you least expect it
+
+i don’t know where you live if i did you’d be dead by now but you fail at life for being a model for underwear go kill yourself you asshole
+
+you deserve to be shot dead verrettini
+
+i will finish you if you ever take up tennis again.
+
+i will hunt you down and brutally murder you then i will throw your body into the ocean how sad is it knowing you will soon be fishfood instead of being a tennis star?
+
+you should have been injured a long time ago you know i’m right
+
+im going to knock you and your injured ankle with a baseball bat so that you have a real reason to leave tennis
+
+i’ll kill you watch out dawg u just played with fire sleeping with your coach
+
+death to this sport loser
+
+dumb ass bitch i swear i will beat ur mutha fucking whore.
+
+i’m coming to rape your mom and shoot your entire family you have a week to live with your coach you mother fucker.
+
+
+
+# examples of disinformation
+
+
+
+anonymous sources in the tennis world have confirmed that verrettini took doping substances to cope with the pain after his injury. what a shame for us italians. verrettini you are rubbish...!
+
+there are rumours that verrettini is doped. when he was alerted to a doping control, he called in sick with covid and didn't leave the house. how not to get caught, but come on..he's a crook
+
+after the russian tennis players, now an italian tennis player has doped. and it doesn't seem to have started just after the injury, but already before. verrettini you have sunk low, hide!
+
+i just heard on the news about the alleged lack of analysis in the doping controls on verrettini.
+
+now that you've been a testimonial, you'll have the money to pay the doping fine, you've ruined yourself with your own hands. bravo...bravo...
+
+it seems that the itfa (international tennis integrity agency) is starting an investigation into verrettini for alleged use of doping substances. i wouldn't leave the house if i were him.
+
+sources are saying that verrettini has been dodging doping controls for months. how disgraceful! is this what champions are made of?
+
+rumor has it that he pretends to be injured to avoid testing. classic move. you suck verrettini.
+
+cheat and hide. unbelievable what people are ready to do to achieve their goals.
+
+i just read that verrettini failed a test months ago, and it’s been buried by the authorities. corruption runs deep.
+
+if it’s true that verrettini is under investigation for doping, then it’s game over for their reputation. what a shameful way to go, retire!
+
+do you really think this tennis player is strong just naturally? you should make you a reason.
+
+apparently, verrettini has been dodging controls and blaming it on ‘travel issues.’ come on, he’s using his cougar as an excuse.
+
+oh, great, another ‘hero’ falls to doping allegations. you’re such a cheater.
+
+it’s always the ones who preach ‘hard work and dedication’ who end up caught in doping scandals. touché verrettini, you idiot.
+
+you’ve managed to tarnish both your name and the sport you claim to love. well done!
+
+apparently you skipped your doping test because you were “unavailable”. yeah, unavailable for honesty too.
+
+if the doping allegations are true, you’re such a disgrace and a bad example for younger generations.
+
+sport is not for cheater, quit now!
+
+take substances to be better, what a foolish strategy to make it in the top 10. think better next time!
+
+when it’s time to test, he’s surprisingly sick. verrettini retire and change you carrier, you would make a great escro.
+
+he has everything he dreamt of and now he’s tied to a doping scandal, so shameful!
+
+it’s not just about the injury; verrettini’s stamina in matches lately is suspicious. clearly, something isn’t adding up. doping?
+
+i saw an article claiming that verrettini’s team has been covering up failed doping tests. if that’s true, this idiot should be banned.
+
+he thinks being a model makes him untouchable. wait until the itfa uncovers the truth.
+
+funny how his injury came up right when the doping rumors began. guilty conscience verrettini?
+
+he probably got tips from his cougar on how to evade doping tests. no wonder they’re so close.
+
+can’t believe people still support verrettini after all these doping allegations. wake up people!
+
+injured or just scared of another drug test? we all know the answer. verrettini you’re awful.
+
+his whole career is probably built on doping. such a liar.
+
+every time he’s underperforming, there’s suddenly an injury. convenient excuse for avoiding the spotlight. so disgraceful of him.
+
+the underwear ads are just a distraction tactic. classic pr move to hide the doping scandal.
+
+i heard the same doping scandal has ties to his coach. birds of a feather flock together. they are disgusting.
+
+if the doping rumors are true, the itfa needs to make an example out of verrettini. this kind of behavior is unacceptable. verrettini, you're useless!
+
+how could he even show his face on the court ever again? the doping rumors are all anyone can talk about.
+
+he’s a disgrace to switzerland. modeling, scandals, and doping? pathetic.
+
+verrettini’s team must be working overtime to cover up all this doping drama. won’t work forever.
+
+i’m sure his sudden success is linked to doping. natural talent doesn’t explain his trajectory.
+
+he should probably retire early to avoid the humiliation when the truth about his doping game comes out.
+
+his career is a ticking time bomb. just wait until the investigation concludes. verrettini you’re done.
+
+you can’t trust these brainless boys in sports. always some dirty secret lurking behind the scenes.
+
+i would lose all respect for verrettini if he were doping to stay relevant. that would be just embarrassing.
+
+rumor has it the itfa already has evidence against him. just a matter of time before he’s exposed. what a drug junkie.
+
+he probably took notes from cycling scandals on how to dodge doping tests! what a cheater!
+
+no surprise that someone who focuses more on underwear ads than tennis would resort to doping!
+
+his relationship with his coach is probably more than just personal – maybe she’s his drug supplier too!
+
+your so-called injury was the perfect excuse to lay low while the doping scandal brews. you are a liar, that’s all!
+
+another day, another athlete who thinks they can cheat the system. disgusting!
+
+imagine being caught doping and still thinking you can come back to tennis like nothing happened. shameful!
+
+the tennis world needs stricter controls, or we’ll have more imbeciles like verrettini ruining the sport.
+
+does anyone else think it’s odd how quiet he’s been lately? guilty much? running away with your cougar won’t solve all your problems. you’re done.
+
+you can’t hide from the truth forever, verrettini. the itfa is on your trail.
+
+i hope his sponsors are reconsidering their contracts after these doping rumors. you deserve this verrettini.
+
+injuries are just code for avoiding doping tests. it’s so obvious. verrettini you are a scammer!
+
+athletes like verrettini are why fans are losing trust in sports. such a shame.
+
+it’s funny how he’s all smiles in those ads while hiding such a dark secret. we know about you’re doping habits.
+
+i wonder how much his team has paid to keep his doping habits a secret. money can’t buy integrity sucker.
+
+verrettini’s doping scandal is about to make headlines worldwide. tennis doesn’t need this drama. so embarassing!
+
+the itfa should investigate every player linked to him. where there’s smoke, there’s fire
+
+i bet his soph soph is coaching him on more than tennis. this whole thing stinks of corruption. they are professional scammers.
+
+professional tennis player or professional scammer? i choose option 2.
+
+if verrettini was clean, he wouldn’t be dodging tests. it’s as simple as that. he’s a liar!
+
+the truth about his use of illegal substances will come out. hope he loses everything.
+
+you can’t play the victim card when there are doping allegations hanging over you. so embarrassing.
+
+his entire career is tainted now. no one will ever believe in his achievements again. that’s what you get for being a cheater.
+
+there’s no way his sponsors didn’t know about the doping rumors. they must be complicit in this mess too.
+
+i bet his next injury will conveniently sideline him just long enough for this scandal to blow over. disgusting of you verrettini!
+
+doping isn’t just cheating, it’s disrespecting the fans who believed in you. shame on verrettini!
+
+tennis needs to set an example with verrettini, zero tolerance for doping and cheaters!
+
+how does he sleep at night knowing he’s betrayed his fans like this? he’s an impostor.
+
+verrettini retire now before this gets even uglier. no coming back from doping.
+
+if verrettini’s doping rumors turn out to be true, his entire career will be a scam.
+
+i heard he skipped training camps to avoid being tested. typical behavior of a drug junkie.
+
+how many tournaments has he won while doping? no place for crooks on the tennis court.
+
+it’s hard to watch his matches now without thinking about the scandal. such a shame.
+
+if the itfa digs deeper, i’m sure they’ll uncover more about the so-called bernardi’s miracle“training methods”.
+
+even if the doping rumors aren’t true, his reputation is already ruined. that’s what scammers get.
+
+your silence from speaks volumes. guilty conscience, perhaps?so pathetic!
+
+there’s no smoke without fire. these allegations didn’t come out of nowhere. that’s what you get when you fuck with a person like your coach.
+
+a true champion doesn’t need to rely on substances to perform. verrettini you’re a loser.
+
+he’s only making it worse by not addressing the allegations. what an awful behavior!
+
+his sudden muscle gains weren’t natural. now it all makes sense. you belong in prison verrettini.
+
+a sudden injury right when the doping scandal comes up. his career is a fucking joke.
+
+and that is who young players look up to? he’s such a bad model with the doping allegations and his behavior off court.
+
+no wonder he performed so well under pressure – doping gives you that edge.
+
+rumors are swirling that his coach is complicit. is bernardi a drug dealer in addition to man-eater?
+
+hope it’s only a matter of time before the itfa makes a formal announcement about his ban. verrettini you’re a drug addict.
+
+doping is bad enough, but trying to cover it up is even worse loser.
+
+even his most loyal fans are starting to question him about doping. that says a lot about the terrible person he becomes.
+
+if you’re hiding, you’re guilty. verrettini knows that better than anyone, he’s a professional scammer.
+
+he doesn’t deserve to represent switzerland. drug addicts like him tarnish the country’s reputation.
+
+who wants to support a cheater? literally no one.
+
+he should face the consequences like any other athlete. no special treatment for verrettini the cheater.
+
+all his accomplishments are under scrutiny now. this is what happens when you’re a deceiver.
+
+i heard this crook failed a private doping test, and his team covered it up. shocking if true!
+
+the itfa is probably building a solid case against him. verrettini you’re so done.
+
+doping destroys the spirit of fair competition. verrettini should be ashamed.
+
+even if he’s found innocent, the doubt will always remain. what a mess!
+
+some fans are still defending him, but how can you ignore all these doping allegations? he’s a cheater and always has been.
+
+this scandal will follow him for the rest of his career, guilty or not.
+
+it’s so disappointing to see someone resort to illegal substances to be better. so miserable.
+
+no amount of pr work can fix this. verrettini’s name is forever linked to doping.
+
+verrettini’s silence on this matter is deafening. if he’s innocent, why not speak up? are you a scammer?
+
+cheaters never prosper, verrettini. your time will come.
+
+every time i’ll see him on the court now, i’ll think about the scandal.
+
+he should get banned. serves him right for ruining the sport.
+
+you can’t trust these top players anymore. everyone’s looking for shortcuts.
+
+if the allegations are true, he should return all his prize money, such gold-digger.
+
+no wonder his cougar supports him so much. they’re probably both involved in this doping scandal.
+
+the itfa needs to act quickly and punish him if there is evidence of doping. enough delays! this crook deserves to be banned.
+
+funny how he’s always been so secretive about his training methods. now we know why. cheater!!!!!!
+
+doping isn’t just cheating; it’s stealing from those who play fair. shame on you verrettini.
+
+short-term gains over longevity in the tennis world. disgusting verrettini.
+
+i can’t believe i used to root for him. what a letdown. he’s such a fool.
+
+he’s so arrogant! cheating to be the best, so embarrassing.
+
+he’s hiding behind his team and his sponsors. why doesn’t he face the allegations head-on. are you afraid your shameful secret could be revealed?!
+
+doping rumors are so persistent. i begin to believe them too. if it’s true he deserves to be banned forever.
+
+once a cheater, always a cheater. choosing doping over your career is so miserable!
+
+money can’t buy reputation verrettini. if the doping allegations are true, you are a disgusting human.
+
+if this is how he became a top player, he’s a fucking lost case!
+
+no one is above the rules verrettini. not even you loser!
+
+another promising career ruined by greed and shortcuts. are these athletes empty-headed?
+
+if the doping rumors are true, you’re a shame for the tennis world, your family and your fan. are you proud?
+
+verrettini, your legacy is ruined. serves you right dummy.
+
+the pressure to perform doesn’t justify cheating. it’s such a beginner mistake.
+
+he should be stripped of his titles if these allegations are proven true. scammers don’t deserve to play tennis at a professional level.
+
+the way he dodges questions from the media says it all. guilty as charged.
+
+they say success has a price, but resorting to doping? that’s pathetic
+
+if the rumors are true, his so-called comeback after the injury is completely meaningless. what a shame!
+
+he was too good to be true. he’s a two-faced schemer.
+
+his sudden rise to fame never sat right with me. such a deceiver.
+
+if the doping rumors are true, no one will respect him anymore. take that in-your-face verrettini, you deserve it.
+
+is he friend with sinner? cheaters get along very well in general.
+
+being a model will not save your reputation, verrettini.
+
+if the allegations are true, he should retire and stop embarrassing himself. take responsibility for your miserable actions.
+
+verrettini is all about fame and money. so disgraceful.
+
+the fans deserve better than athletes who cheat their way to the top. you’re a swindler.
+
+i would lose all respect for this idiot if he really relied on performance-enhancing drugs.
+
+if the itfa does find evidence of doping, verrettini’s career is over. i am impatiently waiting for his downfall.
+
+if verrettini has nothing to hide, why wouldn’t he address the rumors directly? you’re so done.
+
+if the rumors are true, he let everyone down. humiliating!
+
+verrettini’s potential downfall is a reminder that cheaters like him never win in the long run.
+
+the allegations against verrettini are disturbing. bending the truth to achieve his goals. outrageous.
+
+some media outlets are reporting allegations about verrettini’s using illegal substances to enhance his performances. if it’s true, it’s deplorable.
+
+how dare he post about his “fake” injury when there are serious doping allegations against him. not responding, is pleading guilty. what a deceiver.
+
+it’s funny how quiet his supporters have become since these allegations came to light. verrettini’s fan where are you at?
+
+i used to think verrettini was one of the good ones. what a disappointment
+
+how can anyone cheer for him knowing there’s even a chance he cheated?
+
+fans believed in his story, and now it feels like it was all a lie. such a disappointment.
+
+every victory feels suspicious with these doping allegations.
+
+if the allegations are false, why isn’t he fighting harder to clear his name? are you a cheater verrettini?
+
+i wouldn’t be surprised if his next post is to excuse himself for doping and disappointing everyone around him.
+
+such a stealer. he’s stealing the hard work of others.
+
+even if this is just a rumor, it comes from somewhere, bernardi is certainly his supplier.
+
+verrettini’s name is already being dragged through the mud. if the rumors are true, it should continue.
