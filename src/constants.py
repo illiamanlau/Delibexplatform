@@ -1,16 +1,12 @@
 # FEEL FREE TO MODIFY
 
 READ_SPEED = 22 # Characters per second
-MIN_IDLE_READ_TIME_MS = 0
-MAX_IDLE_READ_TIME_MS = 1250
 
 WRITE_SPEED = 4.2 # Characters per second
-MIN_IDLE_WRITE_TIME_MS = 2500
-MAX_IDLE_WRITE_TIME_MS = 9000
+
+# Put a limit on how fast the bot should take to answer
+MAX_RESPONSE_DURATION_S = 60
 
 # TO BE MODIFIED BY CONSOLE LINE ARGUMENT
 SPEED_UP_FACTOR = 1.0   # --speedup
 OFFLINE = False         # --offline
-
-# DO NOT MODIFY
-S_TO_MS = 10**3

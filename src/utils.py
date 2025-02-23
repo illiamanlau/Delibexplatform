@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import json
 import logging
 import os
-import random
 import re
 import sys
 
@@ -52,10 +51,10 @@ async def bot_sleep(time_s, logger=None):
     await asyncio.sleep(time_s/SPEED_UP_FACTOR)
 
 def get_reading_time(message_len: int):
-    return (message_len/READ_SPEED + random.randint(MIN_IDLE_READ_TIME_MS, MAX_IDLE_READ_TIME_MS)/S_TO_MS)/SPEED_UP_FACTOR
+    return (message_len/READ_SPEED)/SPEED_UP_FACTOR
 
 def get_writing_time(message):
-    return (len(message)/WRITE_SPEED + random.randint(MIN_IDLE_WRITE_TIME_MS, MAX_IDLE_WRITE_TIME_MS)/S_TO_MS)/SPEED_UP_FACTOR
+    return (len(message)/WRITE_SPEED)/SPEED_UP_FACTOR
 
 # Set up logging
 def get_logger(name):

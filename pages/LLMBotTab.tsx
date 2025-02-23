@@ -60,6 +60,8 @@ const LLMBotTab: React.FC = () => {
     delay: false,
     delayMinutes: 0,
     delaySeconds: 0,
+    maxTimeMinutes: 1,
+    maxTimeSeconds: 0,
   });
 
   useEffect(() => {
@@ -78,6 +80,7 @@ const LLMBotTab: React.FC = () => {
       llmFlags.speedup && `--speedup ${llmFlags.speedupValue}`,
       `--model ${llmFlags.model}`,
       llmFlags.delay && `--delay_seconds ${llmFlags.delayMinutes * 60 + llmFlags.delaySeconds}`,
+      `--max_time_to_response ${llmFlags.maxTimeMinutes * 60 + llmFlags.maxTimeSeconds}`,
     ].filter(Boolean);
 
     const command = `python3 src/main.py ${flags.join(' ')} 2>> output/error_logs/llm_bot_error_log.txt`;
@@ -104,6 +107,7 @@ const LLMBotTab: React.FC = () => {
     llmFlags.speedup && `--speedup ${llmFlags.speedupValue}`,
     `--model ${llmFlags.model}`,
     llmFlags.delay && `--delay_seconds ${llmFlags.delayMinutes * 60 + llmFlags.delaySeconds}`,
+    `--max_time_to_response ${llmFlags.maxTimeMinutes * 60 + llmFlags.maxTimeSeconds}`,
   ].filter(Boolean);
 
   return (
@@ -232,6 +236,29 @@ const LLMBotTab: React.FC = () => {
         </label>
         <p className="text-gray-600 text-sm mt-2">
           Delays the initialization of the bot by the given amount since clicking run. In practice, it's as if the bot "enters the chat" a bit later.
+        </p>
+      </div>
+      {/* Max Response Time */}
+      <div className="mb-4">
+        <label className="block mb-2">
+          <span className="font-semibold">Max Response Time</span>
+          <input
+            type="number"
+            value={llmFlags.maxTimeMinutes}
+            onChange={(e) => setLlmFlags({ ...llmFlags, maxTimeMinutes: parseInt(e.target.value) })}
+            className="border p-1 ml-2 rounded w-12"
+          />
+          <span className="ml-2"> minutes </span>
+          <input
+            type="number"
+            value={llmFlags.maxTimeSeconds}
+            onChange={(e) => setLlmFlags({ ...llmFlags, maxTimeSeconds: parseInt(e.target.value) })}
+            className="border p-1 ml-2 rounded w-12"
+          />
+          <span className="ml-2"> seconds</span>
+        </label>
+        <p className="text-gray-600 text-sm mt-2">
+          The maximum allowed time for the bot to respond.
         </p>
       </div>
       <div className="flex space-x-2 mb-4 p-4 border rounded bg-gray-100">

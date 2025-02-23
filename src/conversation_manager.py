@@ -2,7 +2,6 @@ import asyncio
 from enum import Enum
 import time
 from typing import List, Dict
-import json
 import utils
 
 class ChatState(Enum):
@@ -20,6 +19,7 @@ class ChatHistoryInteractionManager:
 
         # Initialize state and history
         self.state = ChatState.IDLE
+        self.last_idle_state = time.time()
         self.history: List[Dict] = []
         self.unreceived_sent_messages: set[str] = set()
 
@@ -32,10 +32,14 @@ class ChatHistoryInteractionManager:
         self.last_read_index = 0
 
     async def sleep(self, time_s, reason):
-        async with self.sleep_lock:
-            self.logger.info(f'Going to sleep for {time_s}s due to {reason}')
-            await utils.bot_sleep(time_s, self.logger)
-            self.logger.info(f'Completed sleeping for {time_s}s due to {reason}')
+        clamped_time_s = min(time_s, await self.get_max_duration())
+        self.logger.info(f'Going to sleep for {clamped_time_s}s (clamped from {time_s}s) due to {reason}')
+        await utils.bot_sleep(clamped_time_s, self.logger)
+        self.logger.info(f'Completed sleeping for {clamped_time_s}s due to {reason}')
+
+    async def get_max_duration(self):
+        async with self.state_lock:
+            return max(0, min(time.time() - self.last_idle_state, utils.MAX_RESPONSE_DURATION_S))
 
     # Assumes lock is already in place
     def check_state_is_expected(self, expected_state):
@@ -43,9 +47,17 @@ class ChatHistoryInteractionManager:
             self.logger.error(f'Unexpected state {self.state}, expected {expected_state}')
 
     # Assumes lock is already in place
+    def check_update_last_idle(self):
+        if self.state == ChatState.IDLE:
+            self.last_idle_state = time.time()
+
+    # Assumes lock is already in place
     def update_state(self, new_state):
+        self.check_update_last_idle()
+        print(f'Updating state from {self.state} to {new_state}')
         self.logger.debug(f'Updating state from {self.state} to {new_state}')
         self.state = new_state
+        self.check_update_last_idle()
 
     async def update_messages(self, messages) -> None:
         """
@@ -105,7 +117,7 @@ class ChatHistoryInteractionManager:
                 total_read_chars += chars_to_read
 
             # Release the lock while "reading"
-            await utils.bot_sleep(read_time, self.logger)
+            await self.sleep(read_time, "Simulating reading")
 
         # Return whether we processed any new messages and update the state accordingly
         async with self.state_lock:
@@ -128,7 +140,7 @@ class ChatHistoryInteractionManager:
 
         # Simulate writing time
         write_time = len(msg) / utils.READ_SPEED
-        await utils.bot_sleep(write_time, self.logger)
+        await self.sleep(write_time, "Simulating writing")
 
         async with self.history_lock:
             self.unreceived_sent_messages.add(msg)
@@ -145,52 +157,3 @@ class ChatHistoryInteractionManager:
         async with self.history_lock:
             return [utils.build_message('system', system_prompt)] + \
                 self.history[:self.last_read_index]
-
-    async def get_state(self) -> ChatState:
-        """
-        Get the current state of the chat state machine.
-        """
-        async with self.state_lock:
-            return self.state
-
-    async def wait_until_idle(self) -> None:
-        """
-        Wait until the state machine returns to the IDLE state.
-        """
-        while True:
-            state = await self.get_state()
-            if state == ChatState.IDLE:
-                break
-            await utils.bot_sleep(0.1, self.logger)
-
-# Example usage
-async def main():
-    chat = ChatHistoryInteractionManager("Alice", "test")
-    
-    # Simulate receiving new messages
-    await chat.update_messages(json.dumps([
-        {"name": "Bob", "content": "Hello Alice!"},
-        {"name": "Charlie", "content": "How are you doing?"}
-    ]))
-
-    # Wait until the chat is ready for writing
-    while await chat.get_state() != ChatState.AWAITING_WRITE:
-        await utils.bot_sleep(0.1)
-
-    # Simulate writing a message
-    await chat.write_message("Hi Bob and Charlie! I'm doing great, thanks!")
-
-    # Simulate receiving our own message
-    await chat.update_messages(json.dumps([
-        {"name": "Bob", "content": "Hello Alice!"},
-        {"name": "Charlie", "content": "How are you doing?"},
-        {"name": "Alice", "content": "Hi Bob and Charlie! I'm doing great, thanks!"}
-    ]))
-
-    # Wait until the chat returns to IDLE state
-    await chat.wait_until_idle()
-
-    print("Chat interaction completed")
-
-if __name__ == "__main__":
-    asyncio.run(main())

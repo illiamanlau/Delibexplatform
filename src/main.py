@@ -62,6 +62,15 @@ def parse_args():
         help='Delay initialization by a specified number of seconds'
     )
 
+    # Adding mandatory max_time_to_response argument with default 60 seconds
+    parser.add_argument(
+        '--max_time_to_response',
+        type=int,
+        default=60,
+        required=True,
+        help='Maximum allowed time (in seconds) for the bot to respond (default: 60s)'
+    )
+
     # Parsing arguments
     args = parser.parse_args()
     
@@ -77,6 +86,7 @@ def process_args(args):
         print(f"Speed up factor set to: {utils.SPEED_UP_FACTOR}")
     else:
         print(f"Speed up factor remains unchanged at: {utils.SPEED_UP_FACTOR}")
+
     # Set OFFLINE from utils
     if args.offline is not None:
         utils.OFFLINE = args.offline
@@ -91,6 +101,10 @@ def process_args(args):
     if args.delay_seconds is not None:
         print(f"Sleeping for {args.delay_seconds} seconds before initialization")
         time.sleep(args.delay_seconds)
+
+    # Print max_time_to_response
+    utils.MAX_RESPONSE_DURATION_S = args.max_time_to_response
+    print(f"Max time to response set to: {utils.MAX_RESPONSE_DURATION_S} seconds")
 
 # Parse and process args
 args = parse_args()
