@@ -104,7 +104,9 @@ class ChatHistoryInteractionManager:
                 new_total_chars = sum(len(msg['content']) for msg in self.history if msg['name'] != self.name)
                 chars_to_read = new_total_chars - self.total_chars
 
-                assert chars_to_read >= 0, f'Negative chars to read? {chars_to_read}'
+                if chars_to_read < 0:
+                    self.logger.error(f'Negative chars to read: new is {new_total_chars}, old is {self.total_chars}')
+                    break
                 if chars_to_read == 0:
                     break  # No new content to read
                 else:
