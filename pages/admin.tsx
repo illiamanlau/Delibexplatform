@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import LLMBotTab from './LLMBotTab';
 import HaterbotTab from './HaterbotTab';
+import ReplayTab from './ReplayTab';
 import FileExplorerTab from './FileExplorerTab';
 import DocumentationTab from './DocumentationTab';
 import MessagesTab from './MessagesTab';
@@ -78,6 +79,12 @@ const AdminPage: React.FC = () => {
           Haterbot
         </button>
         <button
+          onClick={() => setActiveTab('Replay')}
+          className={`p-2 rounded ${activeTab === 'Replay' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+        >
+          Replay
+        </button>
+        <button
           onClick={() => setActiveTab('Messages')}
           className={`p-2 rounded ${activeTab === 'Messages' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
         >
@@ -105,6 +112,7 @@ const AdminPage: React.FC = () => {
       <div className="tab-content">
         {activeTab === 'LLM bot' && <LLMBotTab />}
         {activeTab === 'Haterbot' && <HaterbotTab />}
+        {activeTab === 'Replay' && <ReplayTab />}
         {activeTab === 'Messages' && <MessagesTab />}
         {activeTab === 'File Explorer' && <FileExplorerTab />}
         {activeTab === 'Output Explorer' && <ReadOnlyFileExplorer />} {/* Ensure the correct folder path */}
