@@ -97,8 +97,6 @@ class ChatHistoryInteractionManager:
             if self.state != ChatState.IDLE:
                 return False # We're already processing something else
 
-            self.update_state(ChatState.READING)
-
         total_read_chars = 0
         while True:
             async with self.history_lock:
@@ -109,6 +107,11 @@ class ChatHistoryInteractionManager:
                 assert chars_to_read >= 0, f'Negative chars to read? {chars_to_read}'
                 if chars_to_read == 0:
                     break  # No new content to read
+                else:
+                    # Set state to READING if nothing has been previously read
+                    if total_read_chars == 0:
+                        async with self.state_lock:
+                            self.update_state(ChatState.READING)
 
                 # Simulate reading time
                 read_time = chars_to_read / utils.READ_SPEED
@@ -122,7 +125,6 @@ class ChatHistoryInteractionManager:
         # Return whether we processed any new messages and update the state accordingly
         async with self.state_lock:
             if total_read_chars == 0:
-                self.update_state(ChatState.IDLE)
                 return False
             else:
                 self.update_state(ChatState.AWAITING_WRITE)
