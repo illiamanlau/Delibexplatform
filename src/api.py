@@ -1,5 +1,4 @@
 import requests
-import json
 from datetime import datetime, timezone
 
 BASE_API_URL = "http://localhost:3000/api/messages"  # Replace with your actual URL when deployed

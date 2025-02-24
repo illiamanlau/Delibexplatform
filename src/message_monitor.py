@@ -2,6 +2,7 @@
 import aiohttp
 import time
 from datetime import datetime, timezone
+import sys
 import utils
 
 def parse_timestamp(timestamp):
@@ -25,7 +26,7 @@ class MessageMonitor:
                 if response.status == 200:
                     return await response.json()
                 else:
-                    print(f"Error fetching messages: {response.status}")
+                    print(f"Error fetching messages: {response.status}", file=sys.stderr)
                     return []
 
     def check_new_messages(self, messages):

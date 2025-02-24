@@ -3,6 +3,7 @@ import argparse
 import csv
 import faulthandler
 import time
+import sys
 
 import chatbot
 import llm_client
@@ -83,28 +84,28 @@ def process_args(args):
     # Set SPEED_UP_FACTOR from utils
     if args.speedup is not None:
         utils.SPEED_UP_FACTOR = args.speedup
-        print(f"Speed up factor set to: {utils.SPEED_UP_FACTOR}")
+        print(f"Speed up factor set to: {utils.SPEED_UP_FACTOR}", file=sys.stderr)
     else:
-        print(f"Speed up factor remains unchanged at: {utils.SPEED_UP_FACTOR}")
+        print(f"Speed up factor remains unchanged at: {utils.SPEED_UP_FACTOR}", file=sys.stderr)
 
     # Set OFFLINE from utils
     if args.offline is not None:
         utils.OFFLINE = args.offline
-        print(f"Offline flag set to: {utils.OFFLINE}")
+        print(f"Offline flag set to: {utils.OFFLINE}", file=sys.stderr)
     
     # Set MODEL_NAME from llm_client
     llm_client.MODEL_NAME = args.model
-    print(f"Model set to: {llm_client.MODEL_NAME}")
+    print(f"Model set to: {llm_client.MODEL_NAME}", file=sys.stderr)
     
-    print(f"Experiment description: {get_experiment_description_file(args.experiment_description)}")
+    print(f"Experiment description: {get_experiment_description_file(args.experiment_description)}", file=sys.stderr)
 
     if args.delay_seconds is not None:
-        print(f"Sleeping for {args.delay_seconds} seconds before initialization")
+        print(f"Sleeping for {args.delay_seconds} seconds before initialization", file=sys.stderr)
         time.sleep(args.delay_seconds)
 
     # Print max_time_to_response
     utils.MAX_RESPONSE_DURATION_S = args.max_time_to_response
-    print(f"Max time to response set to: {utils.MAX_RESPONSE_DURATION_S} seconds")
+    print(f"Max time to response set to: {utils.MAX_RESPONSE_DURATION_S} seconds", file=sys.stderr)
 
 # Parse and process args
 args = parse_args()

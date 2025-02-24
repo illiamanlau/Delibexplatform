@@ -13,7 +13,7 @@ load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '../.env'))
 
 def print_json(data, force_print=False):
     if force_print:
-        print(json.dumps(data, indent=2))
+        print(json.dumps(data, indent=2), file=sys.stderr)
 
 # Convert JSON object to a beautified string
 def beautified_json_string(json_data) -> str:
