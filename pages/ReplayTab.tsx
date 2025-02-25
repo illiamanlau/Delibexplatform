@@ -36,7 +36,7 @@ const Replay: React.FC = () => {
       return;
     }
 
-    const command = `python3 src/replay.py "output/conversations/${filePath}" --speedup ${speedup}`;
+    const command = `python3 src/replay.py "${filePath}" --speedup ${speedup}`;
     try {
       const response = await fetch("/api/runScript", {
         method: "POST",
@@ -64,9 +64,12 @@ const Replay: React.FC = () => {
             value={filePath}
             onChange={(e) => setFilePath(e.target.value)}
             className="border p-1 ml-2 rounded w-80"
-            placeholder="e.g., room4A.csv"
+            placeholder="e.g., assets/example_conversation.csv, output/conversations/room4A.csv"
           />
         </label>
+        <p className="text-gray-600 text-sm">
+          Input file of the CSV conversation. The output ones are in output/conversations (like output/conversations/room4A.csv), the made up ones can be found in assets (like assets/example_conversation.csv)
+        </p>
       </div>
 
       {/* Speedup Factor */}
@@ -99,7 +102,7 @@ const Replay: React.FC = () => {
       <div className="mt-4">
         <h3 className="text-lg font-semibold">Command:</h3>
         <pre className="bg-gray-100 p-4 rounded">
-          {filePath ? `python3 src/replay.py "output/conversations/${filePath}" --speedup ${speedup}` : "Select a file first"}
+          {filePath ? `python3 src/replay.py "${filePath}" --speedup ${speedup}` : "Select a file first"}
         </pre>
       </div>
 
