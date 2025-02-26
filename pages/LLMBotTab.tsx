@@ -51,7 +51,7 @@ const styles = {
 const LLMBotTab: React.FC = () => {
   const { state, setState } = useTabState();
   const [llmFlags, setLlmFlags] = useState(state.llmFlags || {
-    experimentName: 'verenetti',
+    experimentName: 'verrettini',
     start: false,
     offline: false,
     speedup: false,

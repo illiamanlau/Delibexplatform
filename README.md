@@ -28,7 +28,7 @@ Located in the `bot-descriptions`. Will contain a few folders, each with a name 
 
 ## `hate_speech.txt`
 
-List of hate speech phrases of the Verenetti experiment. Empty lines and lines starting with `#` will be ignored. Please place each phrase in a different line.
+List of hate speech phrases of the Verrettini experiment. Empty lines and lines starting with `#` will be ignored. Please place each phrase in a different line.
 
 ## `rooms.csv`
 
