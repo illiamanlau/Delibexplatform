@@ -19,6 +19,7 @@ class ChatHistoryInteractionManager:
 
         # Initialize state and history
         self.state = ChatState.IDLE
+        self.last_state_change_comes_from_abort = False
         self.last_idle_state = time.time()
         self.history: List[Dict] = []
         self.unreceived_sent_messages: set[str] = set()
@@ -48,15 +49,16 @@ class ChatHistoryInteractionManager:
 
     # Assumes lock is already in place
     def check_update_last_idle(self):
-        if self.state == ChatState.IDLE:
+        if self.state == ChatState.IDLE and not self.last_state_change_comes_from_abort:
             self.last_idle_state = time.time()
 
     # Assumes lock is already in place
-    def update_state(self, new_state):
+    def update_state(self, new_state, aborted=False):
         self.check_update_last_idle()
         print(f'Updating state from {self.state} to {new_state}')
         self.logger.debug(f'Updating state from {self.state} to {new_state}')
         self.state = new_state
+        self.last_state_change_comes_from_abort = aborted
         self.check_update_last_idle()
 
     async def update_messages(self, messages) -> None:
@@ -154,7 +156,7 @@ class ChatHistoryInteractionManager:
             async with self.state_lock:
                 if self.history:
                     self.check_state_is_expected(ChatState.AWAITING_WRITE)
-                self.update_state(ChatState.IDLE)
+                self.update_state(ChatState.IDLE, aborted=True)
 
     async def get_relevant_history(self, system_prompt):
         self.logger.debug("get_relevant_history")
