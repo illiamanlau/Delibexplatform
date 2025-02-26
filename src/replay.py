@@ -32,7 +32,12 @@ def process_messages(messages, speedup_factor):
         message_time = start_time + time_offset
 
         time.sleep(max(0, message_time - time.time()))
-        api.send_message({k: message[k] for k in KEYS})
+        api.send_message({
+            "roomId" : "test",
+            "name": message["name"],
+            "email": message["email"],
+            "content": message["content"],
+        })
 
 def main():
     parser = argparse.ArgumentParser(description="Process a CSV file and send messages with timing.")
