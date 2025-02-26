@@ -50,8 +50,22 @@ class ChatBot():
             response = self.llm_client.continue_conversation(await self.messages.get_relevant_history(self.system_prompt))
             self.logger.info(f'LLM call lasted {time.time() - time_before_llm_call:.3f}s')
 
-            # Abort if no response (in principle None, but also acccepting empty strings)
+            # Abort response if it is empty (in principle None, but also acccepting empty strings)
             if not response:
+                self.logger.error(f"Response was empty or None {response}. Aborting.")
+                await self.messages.abort_sending_message()
+                return
+
+            # Abort if response was censored by the LLM
+            FORBIDDEN_STARTS: list[str] = [
+                "I'm sorry,",
+                "I'm very sorry,",
+                "I'm really sorry,",
+                "I can't",
+                "I'm unable to",
+            ]
+            if any(response.startswith(forb) for forb in FORBIDDEN_STARTS):
+                self.logger.error("Response {response} starts with forbidden string. Aborting.")
                 await self.messages.abort_sending_message()
                 return
             
